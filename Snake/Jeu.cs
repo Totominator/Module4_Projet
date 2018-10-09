@@ -27,7 +27,7 @@ namespace Snake
 
         private Direction directionSerpent = Direction.droite;  // direction du serpent   
         private Direction ancienneDirection = Direction.droite; // direction du dernier déplacement
-        
+
         //    private int[] posTeteSerpent = new int[]{7,6} ;      // L'emplacement de la tête du serpent
         private List<List<int>> serpent = new List<List<int>> { };
 
@@ -42,8 +42,30 @@ namespace Snake
         System.Timers.Timer timerFruit;
         System.Timers.Timer timerAcceleration;
 
+
         FormJeu formJeu;
         FormMenu formMenu;
+        public enum TypeCollision
+        {
+            RAS,
+            Fruit,
+            Fin
+        }
+        private TypeCollision collision_ = TypeCollision.RAS;        // Détermine l'état actuel de la case
+
+        internal TypeCollision Collision
+        {
+            get
+            {
+                return collision_;
+            }
+
+            set
+            {
+                collision_ = value;
+            }
+        }
+
 
         /// <summary>
         /// 
@@ -55,7 +77,7 @@ namespace Snake
 
             creationGrille();
             creationSerpent();
-            gestionFruit(null,null);
+            gestionFruit(null, null);
         }
 
         /// <summary>
@@ -91,22 +113,21 @@ namespace Snake
         private void creationGrille()
         {
             Grille = new Case[LIGNE, COLONNE];
-          
-            for (int iColonne = 0; iColonne <= COLONNE - 1 ; iColonne++)
-                {
+
+            for (int iColonne = 0; iColonne <= COLONNE - 1; iColonne++)
+            {
                 for (int iLigne = 0; iLigne <= LIGNE - 1; iLigne++)
-                    {
-                        grille[iLigne, iColonne] = new Case();
+                {
+                    grille[iLigne, iColonne] = new Case();
                     if (formMenu.Difficulte.Bordure)
                     {
                         if (iLigne == 0 || iLigne == LIGNE - 1 || iColonne == 0 || iColonne == COLONNE - 1)
-                        {
                             Grille[iLigne, iColonne].changerEtatCase(Case.Etat.bordure);
-                        }
                     }
                 }
             }
         }
+
 
         /// <summary>
         /// 
@@ -117,9 +138,9 @@ namespace Snake
             serpent.Add(new List<int> { 7, 7 });
             serpent.Add(new List<int> { 8, 7 });
 
-            foreach(List<int> liste in serpent)
+            foreach (List<int> liste in serpent)
             {
-                Grille[liste[0],liste[1]].changerEtatCase(Case.Etat.serpent);
+                Grille[liste[0], liste[1]].changerEtatCase(Case.Etat.serpent);
             }
         }
 
@@ -144,8 +165,8 @@ namespace Snake
 
             grille[coordFruit[0], coordFruit[1]].Etat1 = Case.Etat.fruit;
 
-            if(formJeu.TabInit) 
-            formJeu.actualiseFruitAffichage(coordFruit,true);
+            if (formJeu.TabInit)
+                formJeu.actualiseFruitAffichage(coordFruit, true);
         }
 
         /// <summary>
@@ -153,45 +174,44 @@ namespace Snake
         /// </summary>
         public void avancerSerpent(object sender, EventArgs e)
         {
-            switch (directionSerpent)
+            if (!formMenu.Difficulte.Bordure)
+                switch (directionSerpent)
             {
                 case Direction.haut:
-                    serpent.Add(new List<int> {serpent.Last()[0],    serpent.Last()[1]-1});
+                    serpent.Add(new List<int> { serpent.Last()[0], serpent.Last()[1] - 1 });
                     break;
                 case Direction.bas:
-                    serpent.Add(new List<int> {serpent.Last()[0],    serpent.Last()[1]+1});
+                    serpent.Add(new List<int> { serpent.Last()[0], serpent.Last()[1] + 1 });
                     break;
                 case Direction.gauche:
-                    serpent.Add(new List<int> {serpent.Last()[0]-1,  serpent.Last()[1] });
+                    serpent.Add(new List<int> { serpent.Last()[0] - 1, serpent.Last()[1] });
                     break;
                 case Direction.droite:
-                    serpent.Add(new List<int> {serpent.Last()[0]+1,  serpent.Last()[1] });
+                    serpent.Add(new List<int> { serpent.Last()[0] + 1, serpent.Last()[1] });
                     break;
             }
-
-
             ancienneDirection = directionSerpent;
 
             //   Actualise l'emplacement de la tête et de la queue du serpent
-            if (!formMenu.Difficulte.Bordure)
-                traverseGrille();
-            if (!gestionCollision())
+            TypeCollision collision;
+            switch(collision = gestionCollision())
             {
-               Grille[serpent[0][0], serpent[0][1]].changerEtatCase(Case.Etat.vide); // transforme la queue du serpent en vide
-                Grille[serpent[serpent.Count - 1][0], serpent[serpent.Count - 1][1]].changerEtatCase(Case.Etat.serpent);  // crée la nouvelle tête du serpent 
+                case TypeCollision.RAS:
+                    Grille[serpent.First()[0], serpent.First()[1]].changerEtatCase(Case.Etat.vide); // transforme la queue du serpent en vide
+                    Grille[serpent.Last()[0], serpent.Last()[1]].changerEtatCase(Case.Etat.serpent);  // crée la nouvelle tête du serpent 
 
-                int[,] tempAffichage = new int[2,2];
-                tempAffichage[0, 0] = serpent[0][0];
-                tempAffichage[0, 1] = serpent[0][1];
-                tempAffichage[1, 0] = serpent[serpent.Count - 1][0];
-                tempAffichage[1, 1] = serpent[serpent.Count - 1][1];
-
-                formJeu.actualiseSerpentAffichage(tempAffichage);
-
-                serpent.RemoveAt(0);
-            }else
-            {
-                arretPartie();
+                formJeu.actualiseSerpentAffichage(new int[] { serpent.Last()[0], serpent.Last()[1] },
+                                                  new int[] { serpent.First()[0], serpent.First()[1] });
+                    serpent.RemoveAt(0);
+                    break;
+                case TypeCollision.Fruit:
+                    Grille[serpent.Last()[0], serpent.Last()[1]].changerEtatCase(Case.Etat.serpent);  // crée la nouvelle tête du serpent 
+                                       
+                    formJeu.actualiseSerpentAffichage(new int[] { serpent.Last()[0], serpent.Last()[1] });
+                    break;
+                case TypeCollision.Fin:
+                    arretPartie();                    
+                    break;
             }
         }
 
@@ -211,19 +231,18 @@ namespace Snake
         private void arretPartie()
         {
             timerJeu.Stop();
-            if(formMenu.Difficulte.DisparitionFruit > 0)
+            if (formMenu.Difficulte.DisparitionFruit > 0)
                 timerFruit.Stop();
             timerAcceleration.Stop();
-
         }
 
         /// <summary>
         /// 
         /// </summary>
-        private bool gestionCollision()
+        private TypeCollision gestionCollision()
         {
-            bool fin = false;
-            switch (Grille[serpent[serpent.Count-1][0], serpent[serpent.Count-1][1]].Etat1)
+            TypeCollision Etatcollision = TypeCollision.RAS;
+            switch (Grille[serpent[serpent.Count - 1][0], serpent[serpent.Count - 1][1]].Etat1)
             {
                 case Case.Etat.vide:
                     break;
@@ -231,15 +250,14 @@ namespace Snake
                     QteFruitManger++;
                     formJeu.actualiseScoreAffichage();
                     gestionFruit(null, null);
-                    break;
-                case Case.Etat.serpent:
-                    fin = true;
+                    Etatcollision = TypeCollision.Fruit;
                     break;
                 case Case.Etat.bordure:
-                    fin = true;
-                    break;                    
+                case Case.Etat.serpent:
+                    Etatcollision = TypeCollision.Fin;
+                    break;
             }
-            return fin;
+            return Etatcollision;
         }
 
 
@@ -252,7 +270,7 @@ namespace Snake
 
         private void changementVitesse(object sender, EventArgs e)
         {
-            if (formMenu.Difficulte.VitesseSerpent *100 - acceleration < 10)
+            if (formMenu.Difficulte.VitesseSerpent * 100 - acceleration < 10)
             {
                 timerJeu.Stop();
                 timerJeu.Interval = formMenu.Difficulte.VitesseSerpent * 100 - acceleration;
@@ -276,16 +294,16 @@ namespace Snake
 
         public void lanceTimerJeu()
         {
-           timerJeu = new System.Timers.Timer(); 
-           timerJeu.Interval = formMenu.Difficulte.VitesseSerpent * 100;
-           timerJeu.Elapsed += new ElapsedEventHandler(avancerSerpent);
-           timerJeu.Start();
+            timerJeu = new System.Timers.Timer();
+            timerJeu.Interval = formMenu.Difficulte.VitesseSerpent * 100;
+            timerJeu.Elapsed += new ElapsedEventHandler(avancerSerpent);
+            timerJeu.Start();
         }
 
         public void lanceTimerFruit()
         {
             timerFruit = new System.Timers.Timer();
-            timerFruit.Interval = formMenu.Difficulte.DisparitionFruit * 1000; 
+            timerFruit.Interval = formMenu.Difficulte.DisparitionFruit * 1000;
             timerFruit.Elapsed += new ElapsedEventHandler(gestionFruit);
             timerFruit.Start();
         }

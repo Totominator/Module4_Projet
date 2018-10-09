@@ -19,7 +19,6 @@
             }
             base.Dispose(disposing);
         }
-
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -85,7 +84,6 @@
             this.bt_Start.Text = "Start";
             this.bt_Start.UseVisualStyleBackColor = true;
             this.bt_Start.Click += new System.EventHandler(this.bt_Start_Click);
-            this.bt_Start.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.bt_Start_KeyPress);
             // 
             // lb_texte_qteManger
             // 
