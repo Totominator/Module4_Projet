@@ -22,7 +22,7 @@ namespace Snake
         {
             InitializeComponent();
             Joueur = new Joueur();
-            difficulte = new Difficulte();
+            Difficulte = new Difficulte();
             ListeJoueurs = joueur.recuperationJoueurs();
             afficheHallOfFame();
             
@@ -37,7 +37,9 @@ namespace Snake
 
         private void bt_Difficulty_Click(object sender, EventArgs e)
         {
-
+            FormDifficulte formDifficulte = new FormDifficulte(this);
+            formDifficulte.Show();
+            this.Hide();
         }
 
         private void bt_Players_Click(object sender, EventArgs e)
@@ -91,9 +93,8 @@ namespace Snake
             }
         }
 
-        private void FormMenu_Load(object sender, EventArgs e)
-        {
+        internal Difficulte Difficulte { get => difficulte; set => difficulte = value; }
 
-        }
+ 
     }
 }

@@ -28,19 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lb_Titre = new System.Windows.Forms.Label();
             this.lb_Vitesse = new System.Windows.Forms.Label();
             this.lb_DisparitionFruit = new System.Windows.Forms.Label();
             this.lb_Acceleration = new System.Windows.Forms.Label();
             this.bt_Bordure = new System.Windows.Forms.Label();
-            this.radbt_Oui = new System.Windows.Forms.RadioButton();
-            this.radbt_No = new System.Windows.Forms.RadioButton();
+            this.rad_Oui = new System.Windows.Forms.RadioButton();
+            this.rad_Non = new System.Windows.Forms.RadioButton();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.bt_SaveReturn = new System.Windows.Forms.Button();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            this.bt_Retour = new System.Windows.Forms.Button();
+            this.trackBar_Vitesse = new System.Windows.Forms.TrackBar();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.num_TempsFruit = new System.Windows.Forms.NumericUpDown();
+            this.num_Acceleration = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar_Vitesse)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_TempsFruit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_Acceleration)).BeginInit();
             this.SuspendLayout();
             // 
             // lb_Titre
@@ -79,7 +84,6 @@
             this.lb_Acceleration.Size = new System.Drawing.Size(141, 13);
             this.lb_Acceleration.TabIndex = 3;
             this.lb_Acceleration.Text = "Time between acceleration :";
-            this.lb_Acceleration.Click += new System.EventHandler(this.lb_Acceleration_Click);
             // 
             // bt_Bordure
             // 
@@ -90,74 +94,86 @@
             this.bt_Bordure.TabIndex = 4;
             this.bt_Bordure.Text = "Borders :";
             // 
-            // radbt_Oui
+            // rad_Oui
             // 
-            this.radbt_Oui.AutoSize = true;
-            this.radbt_Oui.Location = new System.Drawing.Point(210, 195);
-            this.radbt_Oui.Name = "radbt_Oui";
-            this.radbt_Oui.Size = new System.Drawing.Size(43, 17);
-            this.radbt_Oui.TabIndex = 5;
-            this.radbt_Oui.TabStop = true;
-            this.radbt_Oui.Text = "Yes";
-            this.radbt_Oui.UseVisualStyleBackColor = true;
+            this.rad_Oui.AutoSize = true;
+            this.rad_Oui.Location = new System.Drawing.Point(210, 195);
+            this.rad_Oui.Name = "rad_Oui";
+            this.rad_Oui.Size = new System.Drawing.Size(43, 17);
+            this.rad_Oui.TabIndex = 5;
+            this.rad_Oui.TabStop = true;
+            this.rad_Oui.Text = "Yes";
+            this.rad_Oui.UseVisualStyleBackColor = true;
+            this.rad_Oui.CheckedChanged += new System.EventHandler(this.rad_Oui_CheckedChanged);
             // 
-            // radbt_No
+            // rad_Non
             // 
-            this.radbt_No.AutoSize = true;
-            this.radbt_No.Location = new System.Drawing.Point(292, 195);
-            this.radbt_No.Name = "radbt_No";
-            this.radbt_No.Size = new System.Drawing.Size(39, 17);
-            this.radbt_No.TabIndex = 6;
-            this.radbt_No.TabStop = true;
-            this.radbt_No.Text = "No";
-            this.radbt_No.UseVisualStyleBackColor = true;
+            this.rad_Non.AutoSize = true;
+            this.rad_Non.Location = new System.Drawing.Point(292, 195);
+            this.rad_Non.Name = "rad_Non";
+            this.rad_Non.Size = new System.Drawing.Size(39, 17);
+            this.rad_Non.TabIndex = 6;
+            this.rad_Non.TabStop = true;
+            this.rad_Non.Text = "No";
+            this.rad_Non.UseVisualStyleBackColor = true;
+            this.rad_Non.CheckedChanged += new System.EventHandler(this.rad_Non_CheckedChanged);
             // 
-            // bt_SaveReturn
+            // bt_Retour
             // 
-            this.bt_SaveReturn.Location = new System.Drawing.Point(237, 248);
-            this.bt_SaveReturn.Name = "bt_SaveReturn";
-            this.bt_SaveReturn.Size = new System.Drawing.Size(99, 23);
-            this.bt_SaveReturn.TabIndex = 7;
-            this.bt_SaveReturn.Text = "Save and return";
-            this.bt_SaveReturn.UseVisualStyleBackColor = true;
+            this.bt_Retour.Location = new System.Drawing.Point(237, 248);
+            this.bt_Retour.Name = "bt_Retour";
+            this.bt_Retour.Size = new System.Drawing.Size(99, 23);
+            this.bt_Retour.TabIndex = 7;
+            this.bt_Retour.Text = "Save and return";
+            this.bt_Retour.UseVisualStyleBackColor = true;
             // 
-            // trackBar1
+            // trackBar_Vitesse
             // 
-            this.trackBar1.AutoSize = false;
-            this.trackBar1.Location = new System.Drawing.Point(210, 81);
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(126, 32);
-            this.trackBar1.TabIndex = 8;
-            this.trackBar1.Value = 5;
+            this.trackBar_Vitesse.AutoSize = false;
+            this.trackBar_Vitesse.Location = new System.Drawing.Point(204, 71);
+            this.trackBar_Vitesse.Maximum = 5;
+            this.trackBar_Vitesse.Name = "trackBar_Vitesse";
+            this.trackBar_Vitesse.Size = new System.Drawing.Size(126, 32);
+            this.trackBar_Vitesse.TabIndex = 8;
+            this.trackBar_Vitesse.Value = 5;
+            this.trackBar_Vitesse.Scroll += new System.EventHandler(this.trackBar_Vitesse_Scroll);
             // 
-            // comboBox1
+            // num_TempsFruit
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(210, 125);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 9;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.num_TempsFruit.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.num_TempsFruit.Location = new System.Drawing.Point(210, 128);
+            this.num_TempsFruit.Maximum = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            this.num_TempsFruit.Name = "num_TempsFruit";
+            this.num_TempsFruit.Size = new System.Drawing.Size(120, 20);
+            this.num_TempsFruit.TabIndex = 11;
+            this.num_TempsFruit.ValueChanged += new System.EventHandler(this.num_TempsFruit_ValueChanged);
             // 
-            // comboBox2
+            // num_Acceleration
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(210, 158);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 10;
+            this.num_Acceleration.Location = new System.Drawing.Point(210, 161);
+            this.num_Acceleration.Name = "num_Acceleration";
+            this.num_Acceleration.Size = new System.Drawing.Size(120, 20);
+            this.num_Acceleration.TabIndex = 12;
             // 
             // FormDifficulte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(390, 300);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.trackBar1);
-            this.Controls.Add(this.bt_SaveReturn);
-            this.Controls.Add(this.radbt_No);
-            this.Controls.Add(this.radbt_Oui);
+            this.Controls.Add(this.num_Acceleration);
+            this.Controls.Add(this.num_TempsFruit);
+            this.Controls.Add(this.trackBar_Vitesse);
+            this.Controls.Add(this.bt_Retour);
+            this.Controls.Add(this.rad_Non);
+            this.Controls.Add(this.rad_Oui);
             this.Controls.Add(this.bt_Bordure);
             this.Controls.Add(this.lb_Acceleration);
             this.Controls.Add(this.lb_DisparitionFruit);
@@ -165,7 +181,10 @@
             this.Controls.Add(this.lb_Titre);
             this.Name = "FormDifficulte";
             this.Text = "FormDifficulte";
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar_Vitesse)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_TempsFruit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_Acceleration)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,12 +197,13 @@
         private System.Windows.Forms.Label lb_DisparitionFruit;
         private System.Windows.Forms.Label lb_Acceleration;
         private System.Windows.Forms.Label bt_Bordure;
-        private System.Windows.Forms.RadioButton radbt_Oui;
-        private System.Windows.Forms.RadioButton radbt_No;
+        private System.Windows.Forms.RadioButton rad_Oui;
+        private System.Windows.Forms.RadioButton rad_Non;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.Button bt_SaveReturn;
-        private System.Windows.Forms.TrackBar trackBar1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Button bt_Retour;
+        private System.Windows.Forms.TrackBar trackBar_Vitesse;
+        private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.NumericUpDown num_TempsFruit;
+        private System.Windows.Forms.NumericUpDown num_Acceleration;
     }
 }

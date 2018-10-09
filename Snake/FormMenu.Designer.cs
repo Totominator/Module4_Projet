@@ -119,7 +119,6 @@
             this.Controls.Add(this.bt_Play);
             this.Name = "FormMenu";
             this.Text = "FormMenu";
-            this.Load += new System.EventHandler(this.FormMenu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

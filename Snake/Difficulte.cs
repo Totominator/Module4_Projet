@@ -13,18 +13,15 @@ namespace Snake
         private bool bordure = true;                   // Détermine si les bordures sont présente dans les bords du jeu.
         private int disparitionFruit = 0;           // Indique le nombre de seconde avant la disparition d'un fruit non consommé sur la grille.
 
-        public bool Bordure
-        {
-            get
-            {
-                return bordure;
-            }
+ 
 
-            set
-            {
-                bordure = value;
-            }
-        }
+        public int VitesseSerpent { get => vitesseSerpent; set => vitesseSerpent = value; }
+
+        public int TempsAccelerationSerpent { get => tempsAccelerationSerpent; set => tempsAccelerationSerpent = value; }
+
+        public bool Bordure { get => bordure; set => bordure = value; }
+
+        public int DisparitionFruit { get => disparitionFruit; set => disparitionFruit = value; }
 
         public int calculScoreMultiplicateur()
         {
