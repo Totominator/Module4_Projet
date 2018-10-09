@@ -53,6 +53,9 @@ namespace Snake
                 }
             }
             TabInit = true;
+
+
+            (panneauJeu as Control).KeyPress += new KeyPressEventHandler(FormJeu_KeyPress);
         }
 
         /// <summary>
@@ -62,24 +65,28 @@ namespace Snake
         /// <param name="e"></param>
         private void bt_Start_Click(object sender, EventArgs e)
         {
-            bt_Start.Select();
-           // bt_Start.Visible = false;
+            bt_Start.Enabled = false;
+            panneauJeu.Focus();
             jeu.lanceTimerJeu();
         }
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="majSerpent"></param>
-        public void actualiseSerpentAffichage(int[,] majSerpent)
+        /// <param name="tete"></param>
+        /// <param name="tail"></param>
+        public void actualiseSerpentAffichage(int[] tete, int [] queue = null)
         {
-            int index = majSerpent[0, 0] + majSerpent[0, 1] * LIGNE;
+            int index = tete[0] + tete[1] * LIGNE;
 
-           panneauJeu.Controls[index].BackColor = Color.WhiteSmoke;
+           panneauJeu.Controls[index].BackColor = Color.LightGreen;
 
-          index = majSerpent[1, 0] + majSerpent[1, 1] * LIGNE;
+            if (queue != null)
+            {
+                index = queue[0] + queue[1] * LIGNE;
 
-            panneauJeu.Controls[index].BackColor = Color.LightGreen;
+                panneauJeu.Controls[index].BackColor = Color.WhiteSmoke;
+            }
         }
 
         /// <summary>
@@ -109,22 +116,25 @@ namespace Snake
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void bt_Start_KeyPress(object sender, KeyPressEventArgs e)
+        private void FormJeu_KeyPress(object sender, KeyPressEventArgs e)
         {
-            switch (e.KeyChar)
-            {
-                case 'w':
+            Keys keyPressed;
+            if (Enum.TryParse<Keys>(e.KeyChar.ToString(), true, out keyPressed)){
+                switch (keyPressed)
+                {
+                case Keys.W:
                     jeu.changerDirection(Direction.haut);
                     break;
-                case 's':
+                case Keys.S:
                     jeu.changerDirection(Direction.bas);
                     break;
-                case 'a':
+                case Keys.A:
                     jeu.changerDirection(Direction.gauche);
                     break;
-                case 'd':
+                case Keys.D:
                     jeu.changerDirection(Direction.droite);
                     break;
+                }
             }
         }
 
