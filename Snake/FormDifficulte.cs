@@ -48,7 +48,13 @@ namespace Snake
 
         private void num_TempsFruit_ValueChanged(object sender, EventArgs e)
         {
-            difficulte.DisparitionFruit = (int)num_Acceleration.Value;
+            difficulte.DisparitionFruit = (int)num_TempsFruit.Value;
+        }
+
+        private void bt_Retour_Click(object sender, EventArgs e)
+        {
+            formMenu.Show();
+            this.Close();
         }
     }
 }

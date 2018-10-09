@@ -126,12 +126,14 @@
             this.bt_Retour.TabIndex = 7;
             this.bt_Retour.Text = "Save and return";
             this.bt_Retour.UseVisualStyleBackColor = true;
+            this.bt_Retour.Click += new System.EventHandler(this.bt_Retour_Click);
             // 
             // trackBar_Vitesse
             // 
             this.trackBar_Vitesse.AutoSize = false;
             this.trackBar_Vitesse.Location = new System.Drawing.Point(204, 71);
             this.trackBar_Vitesse.Maximum = 5;
+            this.trackBar_Vitesse.Minimum = 1;
             this.trackBar_Vitesse.Name = "trackBar_Vitesse";
             this.trackBar_Vitesse.Size = new System.Drawing.Size(126, 32);
             this.trackBar_Vitesse.TabIndex = 8;
@@ -147,7 +149,7 @@
             0});
             this.num_TempsFruit.Location = new System.Drawing.Point(210, 128);
             this.num_TempsFruit.Maximum = new decimal(new int[] {
-            30,
+            15,
             0,
             0,
             0});
@@ -158,10 +160,30 @@
             // 
             // num_Acceleration
             // 
+            this.num_Acceleration.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.num_Acceleration.Location = new System.Drawing.Point(210, 161);
+            this.num_Acceleration.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.num_Acceleration.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.num_Acceleration.Name = "num_Acceleration";
             this.num_Acceleration.Size = new System.Drawing.Size(120, 20);
             this.num_Acceleration.TabIndex = 12;
+            this.num_Acceleration.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // FormDifficulte
             // 

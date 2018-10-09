@@ -23,7 +23,7 @@ namespace Snake
             InitializeComponent();
             Joueur = new Joueur();
             Difficulte = new Difficulte();
-            ListeJoueurs = joueur.recuperationJoueurs();
+            ListeJoueurs = Joueur.recuperationJoueurs();
             afficheHallOfFame();
             
         }
@@ -67,34 +67,11 @@ namespace Snake
         {
 
         }
-        internal Joueur Joueur
-        {
-            get
-            {
-                return joueur;
-            }
 
-            set
-            {
-                joueur = value;
-            }
-        }
 
-        internal List<Joueur> ListeJoueurs
-        {
-            get
-            {
-                return listeJoueurs;
-            }
-
-            set
-            {
-                listeJoueurs = value;
-            }
-        }
-
-        internal Difficulte Difficulte { get => difficulte; set => difficulte = value; }
-
- 
+        internal Difficulte Difficulte { get => Difficulte1; set => Difficulte1 = value; }
+        internal Difficulte Difficulte1 { get => difficulte; set => difficulte = value; }
+        internal Joueur Joueur { get => joueur; set => joueur = value; }
+        internal List<Joueur> ListeJoueurs { get => listeJoueurs; set => listeJoueurs = value; }
     }
 }

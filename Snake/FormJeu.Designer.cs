@@ -36,6 +36,8 @@
             this.lb_texte_qteManger = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lb_qteManger = new System.Windows.Forms.Label();
+            this.lb_texte_Vitesse = new System.Windows.Forms.Label();
+            this.lb_Vitesse = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,6 +98,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lb_Vitesse);
+            this.panel1.Controls.Add(this.lb_texte_Vitesse);
             this.panel1.Controls.Add(this.lb_qteManger);
             this.panel1.Controls.Add(this.lb_texte_qteManger);
             this.panel1.Location = new System.Drawing.Point(630, 341);
@@ -110,6 +114,23 @@
             this.lb_qteManger.Name = "lb_qteManger";
             this.lb_qteManger.Size = new System.Drawing.Size(0, 13);
             this.lb_qteManger.TabIndex = 6;
+            // 
+            // lb_texte_Vitesse
+            // 
+            this.lb_texte_Vitesse.AutoSize = true;
+            this.lb_texte_Vitesse.Location = new System.Drawing.Point(1, 34);
+            this.lb_texte_Vitesse.Name = "lb_texte_Vitesse";
+            this.lb_texte_Vitesse.Size = new System.Drawing.Size(44, 13);
+            this.lb_texte_Vitesse.TabIndex = 7;
+            this.lb_texte_Vitesse.Text = "Speed :";
+            // 
+            // lb_Vitesse
+            // 
+            this.lb_Vitesse.AutoSize = true;
+            this.lb_Vitesse.Location = new System.Drawing.Point(52, 34);
+            this.lb_Vitesse.Name = "lb_Vitesse";
+            this.lb_Vitesse.Size = new System.Drawing.Size(0, 13);
+            this.lb_Vitesse.TabIndex = 8;
             // 
             // FormJeu
             // 
@@ -141,5 +162,7 @@
         private System.Windows.Forms.Label lb_texte_qteManger;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lb_qteManger;
+        private System.Windows.Forms.Label lb_texte_Vitesse;
+        private System.Windows.Forms.Label lb_Vitesse;
     }
 }

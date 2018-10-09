@@ -19,7 +19,7 @@ namespace Snake
             InitializeComponent();
 
             this.formMenu = formMenu;
-            jeu = new Jeu(this);
+            jeu = new Jeu(this, formMenu);
 
 
             for (int iColonne = 0; iColonne <= COLONNE - 1; iColonne++)
@@ -65,6 +65,10 @@ namespace Snake
             bt_Start.Select();
            // bt_Start.Visible = false;
             jeu.lanceTimerJeu();
+            jeu.lancerTimerAcceleration();
+
+            if (formMenu.Difficulte.DisparitionFruit > 0)
+                jeu.lanceTimerFruit();
         }
 
         /// <summary>
@@ -82,15 +86,19 @@ namespace Snake
             panneauJeu.Controls[index].BackColor = Color.LightGreen;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="majFruit"></param>
-        public void actualiseFruitAffichage(int[] majFruit)
+       /// <summary>
+       /// 
+       /// </summary>
+       /// <param name="majFruit"></param>
+       /// <param name="choix">Affiche le fruit ou enlève l'affichage</param>
+        public void actualiseFruitAffichage(int[] majFruit, bool choix)
         {
             int index = majFruit[0] + majFruit[1] * LIGNE;
 
-            panneauJeu.Controls[index].BackColor = Color.Red;
+            if (choix)
+                panneauJeu.Controls[index].BackColor = Color.Red;
+            else
+                panneauJeu.Controls[index].BackColor = Color.WhiteSmoke;
         }
 
 
@@ -100,6 +108,14 @@ namespace Snake
             lb_qteManger.Invoke(new MethodInvoker(delegate
             {
                 lb_qteManger.Text = jeu.QteFruitManger.ToString();
+            }));
+        }
+
+        public void actualiseVitesseAffichage()
+        {
+            lb_Vitesse.Invoke(new MethodInvoker(delegate
+            {
+                lb_Vitesse.Text = jeu.Acceleration.ToString();
             }));
         }
         
