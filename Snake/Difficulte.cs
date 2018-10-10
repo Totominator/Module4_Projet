@@ -25,7 +25,54 @@ namespace Snake
 
         public int calculScoreMultiplicateur()
         {
-            return 100;
+            int mutiplicateur = 0;
+
+            switch (vitesseSerpent)
+            {
+                case 1:
+                    mutiplicateur += 80;
+                    break;
+                case 2:
+                    mutiplicateur += 60;
+                    break;
+                case 3:
+                    mutiplicateur += 40;
+                    break;
+                case 4:
+                    mutiplicateur += 25;
+                    break;
+                case 5:
+                    mutiplicateur += 15;
+                    break;
+            }
+
+            if (bordure)
+                mutiplicateur += 50;
+
+            if (tempsAccelerationSerpent <= 2)
+                    mutiplicateur += 80;
+            else if (tempsAccelerationSerpent <= 4)
+                mutiplicateur += 60;
+            else if(tempsAccelerationSerpent <= 6)
+                mutiplicateur += 50;
+            else if(tempsAccelerationSerpent <= 8)
+                mutiplicateur += 40;
+            else if(tempsAccelerationSerpent <= 10)
+                mutiplicateur += 30;
+
+            if (disparitionFruit <= 3)
+                mutiplicateur += 80;
+            else if(disparitionFruit <= 5)
+                mutiplicateur += 60;
+            else if (disparitionFruit <= 10)
+                mutiplicateur += 30;
+            else if (disparitionFruit <= 15)
+                mutiplicateur += 20;
+            else if (disparitionFruit <= 20)
+                mutiplicateur += 10;
+
+            
+            return mutiplicateur;
         }
     }
 }

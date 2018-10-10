@@ -29,14 +29,17 @@
         {
             this.panneauJeu = new System.Windows.Forms.Panel();
             this.lb_Titre = new System.Windows.Forms.Label();
-            this.lb_Joueur = new System.Windows.Forms.Label();
+            this.lb_texte_Joueur = new System.Windows.Forms.Label();
             this.bt_CommentJouer = new System.Windows.Forms.Label();
             this.bt_Start = new System.Windows.Forms.Button();
             this.lb_texte_qteManger = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lb_qteManger = new System.Windows.Forms.Label();
-            this.lb_texte_Vitesse = new System.Windows.Forms.Label();
             this.lb_Vitesse = new System.Windows.Forms.Label();
+            this.lb_texte_Vitesse = new System.Windows.Forms.Label();
+            this.lb_qteManger = new System.Windows.Forms.Label();
+            this.lb_Multiplicateur = new System.Windows.Forms.Label();
+            this.lb_Points = new System.Windows.Forms.Label();
+            this.lb_Joueur = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,14 +60,14 @@
             this.lb_Titre.TabIndex = 1;
             this.lb_Titre.Text = "Snake\'s game V0.1";
             // 
-            // lb_Joueur
+            // lb_texte_Joueur
             // 
-            this.lb_Joueur.AutoSize = true;
-            this.lb_Joueur.Location = new System.Drawing.Point(695, 18);
-            this.lb_Joueur.Name = "lb_Joueur";
-            this.lb_Joueur.Size = new System.Drawing.Size(61, 13);
-            this.lb_Joueur.TabIndex = 2;
-            this.lb_Joueur.Text = "Hi, player X";
+            this.lb_texte_Joueur.AutoSize = true;
+            this.lb_texte_Joueur.Location = new System.Drawing.Point(695, 18);
+            this.lb_texte_Joueur.Name = "lb_texte_Joueur";
+            this.lb_texte_Joueur.Size = new System.Drawing.Size(54, 13);
+            this.lb_texte_Joueur.TabIndex = 2;
+            this.lb_texte_Joueur.Text = "Hi, player ";
             // 
             // bt_CommentJouer
             // 
@@ -90,12 +93,14 @@
             this.lb_texte_qteManger.AutoSize = true;
             this.lb_texte_qteManger.Location = new System.Drawing.Point(3, 21);
             this.lb_texte_qteManger.Name = "lb_texte_qteManger";
-            this.lb_texte_qteManger.Size = new System.Drawing.Size(42, 13);
+            this.lb_texte_qteManger.Size = new System.Drawing.Size(50, 13);
             this.lb_texte_qteManger.TabIndex = 5;
-            this.lb_texte_qteManger.Text = "Points :";
+            this.lb_texte_qteManger.Text = "You ate :";
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lb_Points);
+            this.panel1.Controls.Add(this.lb_Multiplicateur);
             this.panel1.Controls.Add(this.lb_Vitesse);
             this.panel1.Controls.Add(this.lb_texte_Vitesse);
             this.panel1.Controls.Add(this.lb_qteManger);
@@ -105,13 +110,13 @@
             this.panel1.Size = new System.Drawing.Size(109, 152);
             this.panel1.TabIndex = 6;
             // 
-            // lb_qteManger
+            // lb_Vitesse
             // 
-            this.lb_qteManger.AutoSize = true;
-            this.lb_qteManger.Location = new System.Drawing.Point(52, 21);
-            this.lb_qteManger.Name = "lb_qteManger";
-            this.lb_qteManger.Size = new System.Drawing.Size(0, 13);
-            this.lb_qteManger.TabIndex = 6;
+            this.lb_Vitesse.AutoSize = true;
+            this.lb_Vitesse.Location = new System.Drawing.Point(52, 34);
+            this.lb_Vitesse.Name = "lb_Vitesse";
+            this.lb_Vitesse.Size = new System.Drawing.Size(0, 13);
+            this.lb_Vitesse.TabIndex = 8;
             // 
             // lb_texte_Vitesse
             // 
@@ -122,23 +127,51 @@
             this.lb_texte_Vitesse.TabIndex = 7;
             this.lb_texte_Vitesse.Text = "Speed :";
             // 
-            // lb_Vitesse
+            // lb_qteManger
             // 
-            this.lb_Vitesse.AutoSize = true;
-            this.lb_Vitesse.Location = new System.Drawing.Point(52, 34);
-            this.lb_Vitesse.Name = "lb_Vitesse";
-            this.lb_Vitesse.Size = new System.Drawing.Size(0, 13);
-            this.lb_Vitesse.TabIndex = 8;
+            this.lb_qteManger.AutoSize = true;
+            this.lb_qteManger.Location = new System.Drawing.Point(52, 21);
+            this.lb_qteManger.Name = "lb_qteManger";
+            this.lb_qteManger.Size = new System.Drawing.Size(0, 13);
+            this.lb_qteManger.TabIndex = 6;
+            // 
+            // lb_Multiplicateur
+            // 
+            this.lb_Multiplicateur.AutoSize = true;
+            this.lb_Multiplicateur.Location = new System.Drawing.Point(55, 61);
+            this.lb_Multiplicateur.Name = "lb_Multiplicateur";
+            this.lb_Multiplicateur.Size = new System.Drawing.Size(35, 13);
+            this.lb_Multiplicateur.TabIndex = 9;
+            this.lb_Multiplicateur.Text = "label1";
+            // 
+            // lb_Points
+            // 
+            this.lb_Points.AutoSize = true;
+            this.lb_Points.Location = new System.Drawing.Point(39, 78);
+            this.lb_Points.Name = "lb_Points";
+            this.lb_Points.Size = new System.Drawing.Size(35, 13);
+            this.lb_Points.TabIndex = 10;
+            this.lb_Points.Text = "label1";
+            // 
+            // lb_Joueur
+            // 
+            this.lb_Joueur.AutoSize = true;
+            this.lb_Joueur.Location = new System.Drawing.Point(756, 18);
+            this.lb_Joueur.Name = "lb_Joueur";
+            this.lb_Joueur.Size = new System.Drawing.Size(35, 13);
+            this.lb_Joueur.TabIndex = 7;
+            this.lb_Joueur.Text = "label1";
             // 
             // FormJeu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 665);
+            this.Controls.Add(this.lb_Joueur);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.bt_Start);
             this.Controls.Add(this.bt_CommentJouer);
-            this.Controls.Add(this.lb_Joueur);
+            this.Controls.Add(this.lb_texte_Joueur);
             this.Controls.Add(this.lb_Titre);
             this.Controls.Add(this.panneauJeu);
             this.Name = "FormJeu";
@@ -154,7 +187,7 @@
 
         private System.Windows.Forms.Panel panneauJeu;
         private System.Windows.Forms.Label lb_Titre;
-        private System.Windows.Forms.Label lb_Joueur;
+        private System.Windows.Forms.Label lb_texte_Joueur;
         private System.Windows.Forms.Label bt_CommentJouer;
         private System.Windows.Forms.Button bt_Start;
         private System.Windows.Forms.Label lb_texte_qteManger;
@@ -162,5 +195,8 @@
         private System.Windows.Forms.Label lb_qteManger;
         private System.Windows.Forms.Label lb_texte_Vitesse;
         private System.Windows.Forms.Label lb_Vitesse;
+        private System.Windows.Forms.Label lb_Points;
+        private System.Windows.Forms.Label lb_Multiplicateur;
+        private System.Windows.Forms.Label lb_Joueur;
     }
 }

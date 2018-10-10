@@ -14,13 +14,14 @@ namespace Snake
         Jeu jeu;
         private bool tabInit = false;
 
+        public bool TabInit { get => tabInit; set => tabInit = value; }
+
         public FormJeu(FormMenu formMenu)
         {
             InitializeComponent();
 
             this.formMenu = formMenu;
             jeu = new Jeu(this, formMenu);
-
 
             for (int iColonne = 0; iColonne <= COLONNE - 1; iColonne++)
             {
@@ -49,13 +50,14 @@ namespace Snake
                     lbCase.BorderStyle = BorderStyle.Fixed3D;
                     lbCase.TabIndex = 0;
                     panneauJeu.Controls.Add(lbCase);
-
                 }
             }
             TabInit = true;
-
-
             (panneauJeu as Control).KeyPress += new KeyPressEventHandler(FormJeu_KeyPress);
+
+            lb_Joueur.Text = formMenu.Joueur.Nom;
+            lb_Multiplicateur.Text = Convert.ToString(formMenu.Difficulte.calculScoreMultiplicateur());
+            
         }
 
         /// <summary>
@@ -81,7 +83,7 @@ namespace Snake
         /// <param name="tail"></param>
         public void actualiseSerpentAffichage(int[] tete, int [] queue = null)
         {
-            int index = tete[0] + tete[1] * LIGNE;
+           int index = tete[0] + tete[1] * LIGNE;
 
            panneauJeu.Controls[index].BackColor = Color.LightGreen;
 
@@ -97,7 +99,7 @@ namespace Snake
        /// 
        /// </summary>
        /// <param name="majFruit"></param>
-       /// <param name="choix">Affiche le fruit ou enlève l'affichage</param>
+       /// <param name="choix">Affiche le fruit ou l'enlève l'affichage</param>
         public void actualiseFruitAffichage(int[] majFruit, bool choix)
         {
             int index = majFruit[0] + majFruit[1] * LIGNE;
@@ -115,6 +117,11 @@ namespace Snake
             lb_qteManger.Invoke(new MethodInvoker(delegate
             {
                 lb_qteManger.Text = jeu.QteFruitManger.ToString();
+            }));
+
+            lb_qteManger.Invoke(new MethodInvoker(delegate
+            {
+                lb_Points.Text = Convert.ToString(jeu.QteFruitManger * (formMenu.Difficulte.calculScoreMultiplicateur()) / 100);
             }));
         }
 
@@ -154,19 +161,5 @@ namespace Snake
             }
         }
 
-  
-
-        public bool TabInit
-        {
-            get
-            {
-                return tabInit;
-            }
-
-            set
-            {
-                tabInit = value;
-            }
-        }
     }
 }

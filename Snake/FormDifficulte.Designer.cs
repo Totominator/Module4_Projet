@@ -42,6 +42,8 @@
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.num_TempsFruit = new System.Windows.Forms.NumericUpDown();
             this.num_Acceleration = new System.Windows.Forms.NumericUpDown();
+            this.lb_Texte_Multiplicateur = new System.Windows.Forms.Label();
+            this.lb_Multiplicateur = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_Vitesse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_TempsFruit)).BeginInit();
@@ -131,6 +133,7 @@
             // trackBar_Vitesse
             // 
             this.trackBar_Vitesse.AutoSize = false;
+            this.trackBar_Vitesse.LargeChange = 1;
             this.trackBar_Vitesse.Location = new System.Drawing.Point(204, 71);
             this.trackBar_Vitesse.Maximum = 5;
             this.trackBar_Vitesse.Minimum = 1;
@@ -185,11 +188,33 @@
             0,
             0});
             // 
+            // lb_Texte_Multiplicateur
+            // 
+            this.lb_Texte_Multiplicateur.AutoSize = true;
+            this.lb_Texte_Multiplicateur.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Texte_Multiplicateur.Location = new System.Drawing.Point(29, 248);
+            this.lb_Texte_Multiplicateur.Name = "lb_Texte_Multiplicateur";
+            this.lb_Texte_Multiplicateur.Size = new System.Drawing.Size(141, 24);
+            this.lb_Texte_Multiplicateur.TabIndex = 13;
+            this.lb_Texte_Multiplicateur.Text = "Mutiplicateur :";
+            this.lb_Texte_Multiplicateur.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lb_Multiplicateur
+            // 
+            this.lb_Multiplicateur.AutoSize = true;
+            this.lb_Multiplicateur.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Multiplicateur.Location = new System.Drawing.Point(165, 248);
+            this.lb_Multiplicateur.Name = "lb_Multiplicateur";
+            this.lb_Multiplicateur.Size = new System.Drawing.Size(0, 24);
+            this.lb_Multiplicateur.TabIndex = 14;
+            // 
             // FormDifficulte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(390, 300);
+            this.Controls.Add(this.lb_Multiplicateur);
+            this.Controls.Add(this.lb_Texte_Multiplicateur);
             this.Controls.Add(this.num_Acceleration);
             this.Controls.Add(this.num_TempsFruit);
             this.Controls.Add(this.trackBar_Vitesse);
@@ -227,5 +252,7 @@
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.NumericUpDown num_TempsFruit;
         private System.Windows.Forms.NumericUpDown num_Acceleration;
+        private System.Windows.Forms.Label lb_Texte_Multiplicateur;
+        private System.Windows.Forms.Label lb_Multiplicateur;
     }
 }
