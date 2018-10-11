@@ -53,6 +53,12 @@
     <Compile Include="FormDifficulte.Designer.cs">
       <DependentUpon>FormDifficulte.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormFinPartie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFinPartie.Designer.cs">
+      <DependentUpon>FormFinPartie.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormJoueur.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +83,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormDifficulte.resx">
       <DependentUpon>FormDifficulte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFinPartie.resx">
+      <DependentUpon>FormFinPartie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormJoueur.resx">
       <DependentUpon>FormJoueur.cs</DependentUpon>

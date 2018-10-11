@@ -65,7 +65,12 @@ namespace Snake
 
         private void bt_Quit_Click(object sender, EventArgs e)
         {
-
+            joueur.supprimeJoueursXML();
+            foreach(Joueur element in listeJoueurs)
+            {
+                joueur.ajoutJoueurXML(element.Nom, element.MeilleurScore, element.MultiplicateurScore);
+            }
+            this.Close();
         }
 
 

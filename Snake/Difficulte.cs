@@ -29,25 +29,26 @@ namespace Snake
 
             switch (vitesseSerpent)
             {
-                case 1:
+                case 5:
                     mutiplicateur += 80;
                     break;
-                case 2:
+                case 4:
                     mutiplicateur += 60;
                     break;
                 case 3:
                     mutiplicateur += 40;
                     break;
-                case 4:
+                case 2:
                     mutiplicateur += 25;
                     break;
-                case 5:
+                case 1:
                     mutiplicateur += 15;
                     break;
             }
 
             if (bordure)
                 mutiplicateur += 50;
+  
 
             if (tempsAccelerationSerpent <= 2)
                     mutiplicateur += 80;
@@ -60,7 +61,9 @@ namespace Snake
             else if(tempsAccelerationSerpent <= 10)
                 mutiplicateur += 30;
 
-            if (disparitionFruit <= 3)
+            if(disparitionFruit == 0)
+                mutiplicateur += 0;
+            else if (disparitionFruit <= 3)
                 mutiplicateur += 80;
             else if(disparitionFruit <= 5)
                 mutiplicateur += 60;

@@ -11,7 +11,7 @@ namespace Snake
         /// <summary>
         /// Définsi les états possible d'une case
         /// </summary>
-        public enum Etat
+        public enum TypeCase
         {
             vide,
             bordure,
@@ -19,31 +19,17 @@ namespace Snake
             fruit,
         }
 
+        private TypeCase etat = TypeCase.vide;          // Détermine l'état actuel de la case
 
-        private Etat etat = Etat.vide;          // Détermine l'état actuel de la case
-
-        internal Etat Etat1
-        {
-            get
-            {
-                return etat;
-            }
-
-            set
-            {
-                etat = value;
-            }
-        }
-
-
+        internal TypeCase Etat { get => etat; set => etat = value; }
 
         /// <summary>
         /// Modifie l'état d'une case
         /// </summary>
         /// <param name="nouvelEtat">Indique le nouvel état de la case</param>
-        public void changerEtatCase(Etat nouvelEtat)
+        public void changerEtatCase(TypeCase nouvelEtat)
         {
-            Etat1 = nouvelEtat;
+             Etat = nouvelEtat;
         }
     }
 }

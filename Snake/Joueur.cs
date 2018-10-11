@@ -48,7 +48,15 @@ namespace Snake
 
         }
 
-        public void ajoutXML(string nom, int meilleurScore, int multiplicateur)
+        public void supprimeJoueursXML()
+        {
+            XmlNode root = xmlDoc.DocumentElement;
+            root.RemoveAll();
+
+            xmlDoc.Save("donneesJoueurs.xml");
+        }
+
+        public void ajoutJoueurXML(string nom, int meilleurScore, int multiplicateur)
         {
             // Création noeud "Joueur"
             XmlNode nouveauJoueur = xmlDoc.CreateNode(XmlNodeType.Element, "joueur", null);
