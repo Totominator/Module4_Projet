@@ -46,7 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Case.cs" />
-    <Compile Include="couleur.cs" />
+    <Compile Include="Couleurs.cs" />
     <Compile Include="Difficulte.cs" />
     <Compile Include="FormDifficulte.cs">
       <SubType>Form</SubType>
