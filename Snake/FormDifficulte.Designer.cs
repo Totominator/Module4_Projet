@@ -54,6 +54,7 @@
             // 
             this.lb_Titre.AutoSize = true;
             this.lb_Titre.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Titre.ForeColor = System.Drawing.Color.White;
             this.lb_Titre.Location = new System.Drawing.Point(12, 19);
             this.lb_Titre.Name = "lb_Titre";
             this.lb_Titre.Size = new System.Drawing.Size(335, 31);
@@ -63,6 +64,7 @@
             // lb_Vitesse
             // 
             this.lb_Vitesse.AutoSize = true;
+            this.lb_Vitesse.ForeColor = System.Drawing.Color.White;
             this.lb_Vitesse.Location = new System.Drawing.Point(95, 81);
             this.lb_Vitesse.Name = "lb_Vitesse";
             this.lb_Vitesse.Size = new System.Drawing.Size(44, 13);
@@ -72,6 +74,7 @@
             // lb_DisparitionFruit
             // 
             this.lb_DisparitionFruit.AutoSize = true;
+            this.lb_DisparitionFruit.ForeColor = System.Drawing.Color.White;
             this.lb_DisparitionFruit.Location = new System.Drawing.Point(63, 128);
             this.lb_DisparitionFruit.Name = "lb_DisparitionFruit";
             this.lb_DisparitionFruit.Size = new System.Drawing.Size(81, 13);
@@ -81,6 +84,7 @@
             // lb_Acceleration
             // 
             this.lb_Acceleration.AutoSize = true;
+            this.lb_Acceleration.ForeColor = System.Drawing.Color.White;
             this.lb_Acceleration.Location = new System.Drawing.Point(3, 161);
             this.lb_Acceleration.Name = "lb_Acceleration";
             this.lb_Acceleration.Size = new System.Drawing.Size(141, 13);
@@ -90,6 +94,7 @@
             // bt_Bordure
             // 
             this.bt_Bordure.AutoSize = true;
+            this.bt_Bordure.ForeColor = System.Drawing.Color.White;
             this.bt_Bordure.Location = new System.Drawing.Point(95, 197);
             this.bt_Bordure.Name = "bt_Bordure";
             this.bt_Bordure.Size = new System.Drawing.Size(49, 13);
@@ -126,7 +131,7 @@
             this.bt_Retour.Name = "bt_Retour";
             this.bt_Retour.Size = new System.Drawing.Size(99, 23);
             this.bt_Retour.TabIndex = 7;
-            this.bt_Retour.Text = "Save and return";
+            this.bt_Retour.Text = "Return";
             this.bt_Retour.UseVisualStyleBackColor = true;
             this.bt_Retour.Click += new System.EventHandler(this.bt_Retour_Click);
             // 
@@ -140,37 +145,37 @@
             this.trackBar_Vitesse.Name = "trackBar_Vitesse";
             this.trackBar_Vitesse.Size = new System.Drawing.Size(126, 32);
             this.trackBar_Vitesse.TabIndex = 8;
-            this.trackBar_Vitesse.Value = 5;
+            this.trackBar_Vitesse.Value = 3;
             this.trackBar_Vitesse.Scroll += new System.EventHandler(this.trackBar_Vitesse_Scroll);
             // 
             // num_TempsFruit
             // 
-            this.num_TempsFruit.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
             this.num_TempsFruit.Location = new System.Drawing.Point(210, 128);
             this.num_TempsFruit.Maximum = new decimal(new int[] {
-            15,
+            10,
             0,
             0,
             0});
             this.num_TempsFruit.Name = "num_TempsFruit";
             this.num_TempsFruit.Size = new System.Drawing.Size(120, 20);
             this.num_TempsFruit.TabIndex = 11;
+            this.num_TempsFruit.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.num_TempsFruit.ValueChanged += new System.EventHandler(this.num_TempsFruit_ValueChanged);
             // 
             // num_Acceleration
             // 
             this.num_Acceleration.Increment = new decimal(new int[] {
-            5,
+            2,
             0,
             0,
             0});
             this.num_Acceleration.Location = new System.Drawing.Point(210, 161);
             this.num_Acceleration.Maximum = new decimal(new int[] {
-            20,
+            12,
             0,
             0,
             0});
@@ -181,17 +186,19 @@
             0});
             this.num_Acceleration.Name = "num_Acceleration";
             this.num_Acceleration.Size = new System.Drawing.Size(120, 20);
-            this.num_Acceleration.TabIndex = 12;
+            this.num_Acceleration.TabIndex = 5;
             this.num_Acceleration.Value = new decimal(new int[] {
-            1,
+            5,
             0,
             0,
             0});
+            this.num_Acceleration.ValueChanged += new System.EventHandler(this.num_Acceleration_ValueChanged_1);
             // 
             // lb_Texte_Multiplicateur
             // 
             this.lb_Texte_Multiplicateur.AutoSize = true;
             this.lb_Texte_Multiplicateur.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Texte_Multiplicateur.ForeColor = System.Drawing.Color.White;
             this.lb_Texte_Multiplicateur.Location = new System.Drawing.Point(29, 248);
             this.lb_Texte_Multiplicateur.Name = "lb_Texte_Multiplicateur";
             this.lb_Texte_Multiplicateur.Size = new System.Drawing.Size(141, 24);

@@ -10,21 +10,19 @@ namespace Snake
     {
         const int COLONNE = 15;
         const int LIGNE = 15;
-        Color couleurSerpent = Color.FromArgb(71, 117, 235);    // bleu clair
-        Color couleurFruit = Color.FromArgb(232, 72, 29);       // rouge pomme
-        Color couleurCaseFonce =  Color.FromArgb(150, 209, 60); // vert case fonce
-        Color couleurCaseClair = Color.FromArgb(170, 215, 81);  // vert case clair
-        Color couleurBordure = Color.FromArgb(87, 138, 52);     // vert bordure fonce
+
+        Couleurs couleur = new Couleurs();
 
         FormMenu formMenu;
         Jeu jeu;
 
-        internal Jeu Jeu { get => jeu; set => jeu = value; }
-
         public FormJeu(FormMenu formMenu)
         {
             InitializeComponent();
-
+            this.BackColor = couleur.CouleurFond;
+            panneauStats.BackColor = couleur.CouleurInterface;
+          
+           
             this.formMenu = formMenu;
             Jeu = new Jeu(this, formMenu);
 
@@ -50,7 +48,12 @@ namespace Snake
 
             lb_Joueur.Text = formMenu.Joueur.Nom;
             lb_Multiplicateur.Text = Convert.ToString(formMenu.Difficulte.calculScoreMultiplicateur());
+            lb_Score.Text = Convert.ToString(formMenu.Joueur.MeilleurScore);
+
+            
         }
+
+
 
         /// <summary>
         /// 
@@ -59,20 +62,25 @@ namespace Snake
         /// <param name="e"></param>
         private void bt_Start_Click(object sender, EventArgs e)
         {
-            bt_Start.Enabled = false;
+            bt_Debut.Enabled = false;
+            bt_Retour.Enabled = false;
             panneauJeu.Focus();
             Jeu.lanceTimerJeu();
             Jeu.lancerTimerAcceleration();
 
-            if (formMenu.Difficulte.DisparitionFruit > 0)
+            if (formMenu.Difficulte.TempsDisparitionFruit > 0)
                 Jeu.lanceTimerFruit();
         }
 
         public void finDePartie()
         {
             FormFinPartie formFinDePartie = new FormFinPartie(formMenu, this);
-            formFinDePartie.Show();
-            this.Hide();
+            this.Invoke(new MethodInvoker(delegate
+            {
+                formFinDePartie.Show();
+                this.Close();
+            }));
+            
         }
 
         private void changerCouleur(Case.TypeCase typeCase, int indexPanneau)
@@ -80,19 +88,19 @@ namespace Snake
             switch (typeCase) { 
                 case Case.TypeCase.vide:
                     if (indexPanneau % 2 == 0)
-                        panneauJeu.Controls[indexPanneau].BackColor = couleurCaseClair;
+                        panneauJeu.Controls[indexPanneau].BackColor = couleur.CouleurCaseClair;
                     else
-                        panneauJeu.Controls[indexPanneau].BackColor = couleurCaseFonce;
+                        panneauJeu.Controls[indexPanneau].BackColor = couleur.CouleurCaseFonce;
                 break;
                 case Case.TypeCase.fruit:
-                    panneauJeu.Controls[indexPanneau].BackColor = couleurFruit;
+                    panneauJeu.Controls[indexPanneau].BackColor = couleur.CouleurFruit;
                     break;
                 case Case.TypeCase.serpent:
-                    panneauJeu.Controls[indexPanneau].BackColor = couleurSerpent;
+                    panneauJeu.Controls[indexPanneau].BackColor = couleur.CouleurSerpent;
                     break;
                 case Case.TypeCase.bordure:
                     (panneauJeu.Controls[indexPanneau] as Label).BorderStyle = BorderStyle.None;
-                    panneauJeu.Controls[indexPanneau].BackColor = couleurBordure;
+                    panneauJeu.Controls[indexPanneau].BackColor = couleur.CouleurBordure;
                     break;
             }
         }
@@ -140,18 +148,10 @@ namespace Snake
 
             lb_qteManger.Invoke(new MethodInvoker(delegate
             {
-                lb_Points.Text = Convert.ToString(Jeu.QteFruitManger * (formMenu.Difficulte.calculScoreMultiplicateur()) / 100);
+                lb_Score.Text = Convert.ToString(Jeu.QteFruitManger * (formMenu.Difficulte.calculScoreMultiplicateur()) / 100);
             }));
         }
 
-        public void actualiseVitesseAffichage()
-        {
-            lb_Vitesse.Invoke(new MethodInvoker(delegate
-            {
-                lb_Vitesse.Text = Jeu.Acceleration.ToString();
-            }));
-        }
-        
         /// <summary>
         /// 
         /// </summary>
@@ -179,5 +179,12 @@ namespace Snake
             }
         }
 
+        private void bt_Retour_Click(object sender, EventArgs e)
+        {
+            formMenu.Show();
+            this.Close();
+        }
+
+        internal Jeu Jeu { get => jeu; set => jeu = value; }
     }
 }

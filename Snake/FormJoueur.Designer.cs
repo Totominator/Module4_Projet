@@ -43,6 +43,7 @@
             // lb_SelectPlayer
             // 
             this.lb_SelectPlayer.AutoSize = true;
+            this.lb_SelectPlayer.ForeColor = System.Drawing.Color.White;
             this.lb_SelectPlayer.Location = new System.Drawing.Point(29, 71);
             this.lb_SelectPlayer.Name = "lb_SelectPlayer";
             this.lb_SelectPlayer.Size = new System.Drawing.Size(92, 13);
@@ -52,6 +53,7 @@
             // lb_CreatePlayer
             // 
             this.lb_CreatePlayer.AutoSize = true;
+            this.lb_CreatePlayer.ForeColor = System.Drawing.Color.White;
             this.lb_CreatePlayer.Location = new System.Drawing.Point(29, 95);
             this.lb_CreatePlayer.Name = "lb_CreatePlayer";
             this.lb_CreatePlayer.Size = new System.Drawing.Size(84, 13);
@@ -61,6 +63,7 @@
             // lb_DeletePlayer
             // 
             this.lb_DeletePlayer.AutoSize = true;
+            this.lb_DeletePlayer.ForeColor = System.Drawing.Color.White;
             this.lb_DeletePlayer.Location = new System.Drawing.Point(29, 120);
             this.lb_DeletePlayer.Name = "lb_DeletePlayer";
             this.lb_DeletePlayer.Size = new System.Drawing.Size(84, 13);
@@ -71,6 +74,7 @@
             // 
             this.lb_Titre.AutoSize = true;
             this.lb_Titre.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Titre.ForeColor = System.Drawing.Color.White;
             this.lb_Titre.Location = new System.Drawing.Point(26, 18);
             this.lb_Titre.Name = "lb_Titre";
             this.lb_Titre.Size = new System.Drawing.Size(218, 31);
@@ -84,6 +88,7 @@
             this.cbBox_Selectionne.Name = "cbBox_Selectionne";
             this.cbBox_Selectionne.Size = new System.Drawing.Size(121, 21);
             this.cbBox_Selectionne.TabIndex = 4;
+            this.cbBox_Selectionne.SelectedIndexChanged += new System.EventHandler(this.cbBox_Selectionne_SelectedIndexChanged);
             // 
             // cbBox_Supprime
             // 
@@ -134,6 +139,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(349, 220);
             this.Controls.Add(this.bt_Retour);
             this.Controls.Add(this.bt_Supprime);

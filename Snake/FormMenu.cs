@@ -16,6 +16,7 @@ namespace Snake
         Joueur joueur;
         Difficulte difficulte;
         List<Joueur> listeJoueurs;
+        Couleurs couleur;
 
 
         public FormMenu()
@@ -24,15 +25,22 @@ namespace Snake
             Joueur = new Joueur();
             Difficulte = new Difficulte();
             ListeJoueurs = Joueur.recuperationJoueurs();
+            couleur = new Couleurs();
             afficheHallOfFame();
-            
+
+            this.BackColor = couleur.CouleurFond;
         }
 
         private void bt_Play_Click(object sender, EventArgs e)
         {
+            lancerPartie();
+            this.Hide();
+        }
+
+        public void lancerPartie()
+        {
             FormJeu formJeu = new FormJeu(this);
             formJeu.Show();
-            this.Hide();
         }
 
         private void bt_Difficulty_Click(object sender, EventArgs e)

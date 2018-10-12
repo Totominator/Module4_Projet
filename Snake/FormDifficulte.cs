@@ -14,11 +14,18 @@ namespace Snake
     {
         FormMenu formMenu;
         Difficulte difficulte;
+        Couleurs couleur;
         public FormDifficulte(FormMenu formMenu)
         {
             InitializeComponent();
             this.formMenu = formMenu;
             this.difficulte = formMenu.Difficulte;
+            couleur = new Couleurs();
+            this.BackColor = couleur.CouleurFond;
+
+            trackBar_Vitesse.Value = difficulte.VitesseSerpent;
+            num_Acceleration.Value = difficulte.TempsAccelerationSerpent;
+            num_TempsFruit.Value = difficulte.TempsDisparitionFruit;
             if (difficulte.Bordure)
                 rad_Oui.Checked = difficulte.Bordure;
             else
@@ -27,6 +34,13 @@ namespace Snake
 
         public void actualiseMultiplicateurAffichage()
         {
+            if (difficulte.calculScoreMultiplicateur() >= 200)
+                lb_Multiplicateur.ForeColor = Color.Red;
+            else if (difficulte.calculScoreMultiplicateur() >= 180)
+                lb_Multiplicateur.ForeColor = Color.Yellow;
+            else 
+                lb_Multiplicateur.ForeColor = Color.DarkGreen;
+
             lb_Multiplicateur.Text = Convert.ToString(difficulte.calculScoreMultiplicateur()) + "%";
         }
 
@@ -51,15 +65,9 @@ namespace Snake
             actualiseMultiplicateurAffichage();
         }
 
-        private void num_Acceleration_ValueChanged(object sender, EventArgs e)
-        {
-            difficulte.TempsAccelerationSerpent = (int)num_Acceleration.Value;
-            actualiseMultiplicateurAffichage();
-        }
-
         private void num_TempsFruit_ValueChanged(object sender, EventArgs e)
         {
-            difficulte.DisparitionFruit = (int)num_TempsFruit.Value;
+            difficulte.TempsDisparitionFruit = (int)num_TempsFruit.Value;
             actualiseMultiplicateurAffichage();
         }
 
@@ -67,6 +75,12 @@ namespace Snake
         {
             formMenu.Show();
             this.Close();
+        }
+
+        private void num_Acceleration_ValueChanged_1(object sender, EventArgs e)
+        {
+            difficulte.TempsAccelerationSerpent = (int)num_Acceleration.Value;
+            actualiseMultiplicateurAffichage();
         }
     }
 }

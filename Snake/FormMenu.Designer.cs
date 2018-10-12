@@ -40,17 +40,18 @@
             // 
             // bt_Play
             // 
-            this.bt_Play.Location = new System.Drawing.Point(79, 137);
+            this.bt_Play.BackColor = System.Drawing.SystemColors.Control;
+            this.bt_Play.Location = new System.Drawing.Point(22, 106);
             this.bt_Play.Name = "bt_Play";
             this.bt_Play.Size = new System.Drawing.Size(94, 23);
             this.bt_Play.TabIndex = 0;
             this.bt_Play.Text = "Play at the game";
-            this.bt_Play.UseVisualStyleBackColor = true;
+            this.bt_Play.UseVisualStyleBackColor = false;
             this.bt_Play.Click += new System.EventHandler(this.bt_Play_Click);
             // 
             // bt_Players
             // 
-            this.bt_Players.Location = new System.Drawing.Point(79, 166);
+            this.bt_Players.Location = new System.Drawing.Point(22, 135);
             this.bt_Players.Name = "bt_Players";
             this.bt_Players.Size = new System.Drawing.Size(94, 23);
             this.bt_Players.TabIndex = 1;
@@ -60,7 +61,7 @@
             // 
             // bt_Difficulty
             // 
-            this.bt_Difficulty.Location = new System.Drawing.Point(79, 195);
+            this.bt_Difficulty.Location = new System.Drawing.Point(22, 164);
             this.bt_Difficulty.Name = "bt_Difficulty";
             this.bt_Difficulty.Size = new System.Drawing.Size(94, 23);
             this.bt_Difficulty.TabIndex = 2;
@@ -70,7 +71,7 @@
             // 
             // bt_Quit
             // 
-            this.bt_Quit.Location = new System.Drawing.Point(79, 270);
+            this.bt_Quit.Location = new System.Drawing.Point(22, 239);
             this.bt_Quit.Name = "bt_Quit";
             this.bt_Quit.Size = new System.Drawing.Size(94, 23);
             this.bt_Quit.TabIndex = 3;
@@ -82,7 +83,8 @@
             // 
             this.lb_HallofFame.AutoSize = true;
             this.lb_HallofFame.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_HallofFame.Location = new System.Drawing.Point(203, 137);
+            this.lb_HallofFame.ForeColor = System.Drawing.Color.White;
+            this.lb_HallofFame.Location = new System.Drawing.Point(147, 72);
             this.lb_HallofFame.Name = "lb_HallofFame";
             this.lb_HallofFame.Size = new System.Drawing.Size(174, 31);
             this.lb_HallofFame.TabIndex = 4;
@@ -92,7 +94,8 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(69, 37);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(328, 55);
             this.label1.TabIndex = 5;
@@ -100,7 +103,8 @@
             // 
             // panneau_HallOfFame
             // 
-            this.panneau_HallOfFame.Location = new System.Drawing.Point(209, 171);
+            this.panneau_HallOfFame.ForeColor = System.Drawing.Color.White;
+            this.panneau_HallOfFame.Location = new System.Drawing.Point(153, 106);
             this.panneau_HallOfFame.Name = "panneau_HallOfFame";
             this.panneau_HallOfFame.Size = new System.Drawing.Size(168, 154);
             this.panneau_HallOfFame.TabIndex = 6;
@@ -109,7 +113,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(848, 493);
+            this.ClientSize = new System.Drawing.Size(360, 395);
             this.Controls.Add(this.panneau_HallOfFame);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lb_HallofFame);
@@ -118,7 +122,7 @@
             this.Controls.Add(this.bt_Players);
             this.Controls.Add(this.bt_Play);
             this.Name = "FormMenu";
-            this.Text = "FormMenu";
+            this.Text = "Snake\'s game";
             this.ResumeLayout(false);
             this.PerformLayout();
 

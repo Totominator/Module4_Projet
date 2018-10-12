@@ -233,7 +233,7 @@ namespace Snake
         private void arretPartie()
         {
             timerJeu.Stop();
-            if (formMenu.Difficulte.DisparitionFruit > 0)
+            if (formMenu.Difficulte.TempsDisparitionFruit > 0)
                 timerFruit.Stop();
             timerAcceleration.Stop();
 
@@ -254,6 +254,11 @@ namespace Snake
                     QteFruitManger++;
                     formJeu.actualiseScoreAffichage();
                     gestionFruit(null, null);
+                    if (formMenu.Difficulte.TempsDisparitionFruit > 0)
+                    {
+                        timerFruit.Stop();
+                        timerFruit.Start();
+                    }
                     Etatcollision = TypeCollision.Fruit;
                     break;
                 case Case.TypeCase.bordure:
@@ -274,13 +279,10 @@ namespace Snake
 
         private void changementVitesse(object sender, EventArgs e)
         {
-            if ((formMenu.Difficulte.VitesseSerpent * 100 - acceleration) > 200)
+            if ((formMenu.Difficulte.VitesseSerpent * 100 - acceleration) > 90)
             {
-                timerJeu.Stop();
                 timerJeu.Interval = formMenu.Difficulte.VitesseSerpent * 100 - acceleration;
-                Acceleration += 10;
-                timerJeu.Start();
-                formJeu.actualiseVitesseAffichage();
+                Acceleration += 5;
             }
             else
             {
@@ -299,7 +301,7 @@ namespace Snake
         public void lanceTimerJeu()
         {
             timerJeu = new System.Timers.Timer();
-            timerJeu.Interval = formMenu.Difficulte.VitesseSerpent * 100;
+            timerJeu.Interval = formMenu.Difficulte.VitesseSerpent * 120;
             timerJeu.Elapsed += new ElapsedEventHandler(avancerSerpent);
             timerJeu.Start();
         }
@@ -307,7 +309,7 @@ namespace Snake
         public void lanceTimerFruit()
         {
             timerFruit = new System.Timers.Timer();
-            timerFruit.Interval = formMenu.Difficulte.DisparitionFruit * 1000;
+            timerFruit.Interval = formMenu.Difficulte.TempsDisparitionFruit * 1000;
             timerFruit.Elapsed += new ElapsedEventHandler(gestionFruit);
             timerFruit.Start();
         }

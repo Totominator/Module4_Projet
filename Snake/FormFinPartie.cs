@@ -15,6 +15,7 @@ namespace Snake
         FormMenu formMenu;
         FormJeu formJeu;
 
+
         public FormFinPartie(FormMenu formMenu, FormJeu formJeu)
         {
             InitializeComponent();
@@ -29,7 +30,7 @@ namespace Snake
 
         private void bt_Rejouer_Click(object sender, EventArgs e)
         {
-            formJeu.Show();
+            formMenu.lancerPartie();
             this.Close();
         }
 

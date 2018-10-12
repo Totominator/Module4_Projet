@@ -11,7 +11,7 @@ namespace Snake
         private int tempsAccelerationSerpent = 5;   // Détermine tous les combien de temps le serpent vas accéléré.
         private int vitesseSerpent = 3;             // Détermine la vitesse du serpent au début de la partie.
         private bool bordure = true;                   // Détermine si les bordures sont présente dans les bords du jeu.
-        private int disparitionFruit = 0;           // Indique le nombre de seconde avant la disparition d'un fruit non consommé sur la grille.
+        private int tempsDisparitionFruit = 0;           // Indique le nombre de seconde avant la disparition d'un fruit non consommé sur la grille.
 
  
 
@@ -21,7 +21,7 @@ namespace Snake
 
         public bool Bordure { get => bordure; set => bordure = value; }
 
-        public int DisparitionFruit { get => disparitionFruit; set => disparitionFruit = value; }
+        public int TempsDisparitionFruit { get => tempsDisparitionFruit; set => tempsDisparitionFruit = value; }
 
         public int calculScoreMultiplicateur()
         {
@@ -61,17 +61,17 @@ namespace Snake
             else if(tempsAccelerationSerpent <= 10)
                 mutiplicateur += 30;
 
-            if(disparitionFruit == 0)
+            if(tempsDisparitionFruit == 0)
                 mutiplicateur += 0;
-            else if (disparitionFruit <= 3)
+            else if (tempsDisparitionFruit <= 4)
                 mutiplicateur += 80;
-            else if(disparitionFruit <= 5)
+            else if(tempsDisparitionFruit <= 5)
                 mutiplicateur += 60;
-            else if (disparitionFruit <= 10)
+            else if (tempsDisparitionFruit <= 6)
                 mutiplicateur += 30;
-            else if (disparitionFruit <= 15)
+            else if (tempsDisparitionFruit <= 7)
                 mutiplicateur += 20;
-            else if (disparitionFruit <= 20)
+            else if (tempsDisparitionFruit <= 8)
                 mutiplicateur += 10;
 
             

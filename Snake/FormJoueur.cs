@@ -14,14 +14,18 @@ namespace Snake
     {
         FormMenu formMenu;
         Joueur joueur;
+        Couleurs couleur;
 
         public FormJoueur(FormMenu formMenu)
         {
             InitializeComponent();
             this.formMenu = formMenu;
             this.joueur = formMenu.Joueur;
+            couleur = new Couleurs();
             actualiseAffichageComboBox();
-         
+
+            this.BackColor = couleur.CouleurFond;
+            
         }
 
         private void actualiseAffichageComboBox()
@@ -59,6 +63,11 @@ namespace Snake
 
             actualiseAffichageComboBox();
 
+        }
+
+        private void cbBox_Selectionne_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            formMenu.Joueur = formMenu.ListeJoueurs[cbBox_Selectionne.SelectedIndex];
         }
     }
 }
