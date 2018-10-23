@@ -10,7 +10,7 @@ namespace Snake
 {
     class Joueur
     {
-        private string nom = "Player1";
+        private string nom = "Player";
         private int meilleurScore = 0;
         private int multiplicateurScore = 0;
         private XmlDocument xmlDoc;
@@ -18,9 +18,7 @@ namespace Snake
     public List<Joueur> recuperationJoueurs()
     {
         List<Joueur> listeJoueur = new List<Joueur>();
-        xmlDoc = new XmlDocument();
-        xmlDoc.Load("donneesJoueurs.xml");
-
+        
         XmlNodeList joueurs;
         joueurs = xmlDoc.GetElementsByTagName("donneesJoueurs");
         XmlNodeList infoJoueurs;
@@ -39,13 +37,10 @@ namespace Snake
         return listeJoueur;
     }
 
-        /// <summary>
-        /// Récupère la liste composé de Joueur dans un fichier XML
-        /// </summary>
-        /// <returns>Liste des joueurs</returns>
-        public void importerListe()
+        public Joueur()
         {
-
+            xmlDoc = new XmlDocument();
+            xmlDoc.Load("donneesJoueurs.xml");
         }
 
         public void supprimeJoueursXML()
@@ -81,6 +76,8 @@ namespace Snake
 
             Console.WriteLine("save");
         }
+
+
 
         public void ajouterJoueur(List<Joueur> joueurs, string nom)
         {

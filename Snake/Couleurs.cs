@@ -15,14 +15,96 @@ namespace Snake
         Color couleurBordure = Color.FromArgb(87, 138, 52);     // vert bordure fonce
         Color couleurInterface = Color.FromArgb(74, 117, 44);   // vert fonce
         Color couleurFond = Color.FromArgb(118, 187, 72);       // vert clair
-        
 
-        public Color CouleurSerpent { get => couleurSerpent; set => couleurSerpent = value; }
-        public Color CouleurFruit { get => couleurFruit; set => couleurFruit = value; }
-        public Color CouleurCaseFonce { get => couleurCaseFonce; set => couleurCaseFonce = value; }
-        public Color CouleurCaseClair { get => couleurCaseClair; set => couleurCaseClair = value; }
-        public Color CouleurBordure { get => couleurBordure; set => couleurBordure = value; }
-        public Color CouleurInterface { get => couleurInterface; set => couleurInterface = value; }
-        public Color CouleurFond { get => couleurFond; set => couleurFond = value; }
+        public Color CouleurFruit
+        {
+            get
+            {
+                return couleurFruit;
+            }
+
+            set
+            {
+                couleurFruit = value;
+            }
+        }
+
+        public Color CouleurCaseFonce
+        {
+            get
+            {
+                return couleurCaseFonce;
+            }
+
+            set
+            {
+                couleurCaseFonce = value;
+            }
+        }
+
+        public Color CouleurCaseClair
+        {
+            get
+            {
+                return couleurCaseClair;
+            }
+
+            set
+            {
+                couleurCaseClair = value;
+            }
+        }
+
+        public Color CouleurBordure
+        {
+            get
+            {
+                return couleurBordure;
+            }
+
+            set
+            {
+                couleurBordure = value;
+            }
+        }
+
+        public Color CouleurInterface
+        {
+            get
+            {
+                return couleurInterface;
+            }
+
+            set
+            {
+                couleurInterface = value;
+            }
+        }
+
+        public Color CouleurFond
+        {
+            get
+            {
+                return couleurFond;
+            }
+
+            set
+            {
+                couleurFond = value;
+            }
+        }
+
+        public Color CouleurSerpent
+        {
+            get
+            {
+                return couleurSerpent;
+            }
+
+            set
+            {
+                couleurSerpent = value;
+            }
+        }
     }
 }

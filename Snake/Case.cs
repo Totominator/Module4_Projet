@@ -21,7 +21,20 @@ namespace Snake
 
         private TypeCase etat = TypeCase.vide;          // Détermine l'état actuel de la case
 
-        internal TypeCase Etat { get => etat; set => etat = value; }
+        internal TypeCase Etat
+        {
+            get
+            {
+                return etat;
+            }
+
+            set
+            {
+                etat = value;
+            }
+        }
+
+
 
         /// <summary>
         /// Modifie l'état d'une case

@@ -25,7 +25,6 @@ namespace Snake
             actualiseAffichageComboBox();
 
             this.BackColor = couleur.CouleurFond;
-            
         }
 
         private void actualiseAffichageComboBox()
@@ -62,7 +61,6 @@ namespace Snake
                 cbBox_Selectionne.ResetText();
 
             actualiseAffichageComboBox();
-
         }
 
         private void cbBox_Selectionne_SelectedIndexChanged(object sender, EventArgs e)

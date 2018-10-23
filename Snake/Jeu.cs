@@ -34,7 +34,8 @@ namespace Snake
         private int[] coordFruit = new int[2];
 
         private int qteFruitManger = 0;                             // Indique la quantité de fruit mangé par le serpent
-        private int acceleration = 0;
+        private int accelerationIncrement = 10; // accélération du serpent a chaque tic en ms
+        private int accelerationDepuisDebut = 0;
         const int COLONNE = 15;
         const int LIGNE = 15;
 
@@ -42,30 +43,15 @@ namespace Snake
         System.Timers.Timer timerFruit;
         System.Timers.Timer timerAcceleration;
 
-
         FormJeu formJeu;
         FormMenu formMenu;
         public enum TypeCollision
         {
-            RAS,
+            RAS, // rien à signaler
             Fruit,
             Fin
         }
         private TypeCollision collision_ = TypeCollision.RAS;        // Détermine l'état actuel de la case
-
-        internal TypeCollision Collision
-        {
-            get
-            {
-                return collision_;
-            }
-
-            set
-            {
-                collision_ = value;
-            }
-        }
-
 
         /// <summary>
         /// 
@@ -127,7 +113,6 @@ namespace Snake
                 }
             }
         }
-
 
         /// <summary>
         /// 
@@ -232,10 +217,10 @@ namespace Snake
 
         private void arretPartie()
         {
-            timerJeu.Stop();
+            TimerJeu.Stop();
             if (formMenu.Difficulte.TempsDisparitionFruit > 0)
-                timerFruit.Stop();
-            timerAcceleration.Stop();
+                TimerFruit.Stop();
+            TimerAcceleration.Stop();
 
             formJeu.finDePartie();
         }
@@ -256,8 +241,8 @@ namespace Snake
                     gestionFruit(null, null);
                     if (formMenu.Difficulte.TempsDisparitionFruit > 0)
                     {
-                        timerFruit.Stop();
-                        timerFruit.Start();
+                        TimerFruit.Stop();
+                        TimerFruit.Start();
                     }
                     Etatcollision = TypeCollision.Fruit;
                     break;
@@ -279,44 +264,118 @@ namespace Snake
 
         private void changementVitesse(object sender, EventArgs e)
         {
-            if ((formMenu.Difficulte.VitesseSerpent * 100 - acceleration) > 90)
+            if ((formMenu.Difficulte.VitesseSerpent * 100 - accelerationDepuisDebut) > 100)
             {
-                timerJeu.Interval = formMenu.Difficulte.VitesseSerpent * 100 - acceleration;
-                Acceleration += 5;
+                TimerJeu.Interval = formMenu.Difficulte.VitesseSerpent * 100 - accelerationIncrement;
+                accelerationDepuisDebut += accelerationIncrement;
             }
             else
             {
-                timerAcceleration.Stop();
+                TimerAcceleration.Stop();
             }
         }
 
         public void lancerTimerAcceleration()
         {
-            timerAcceleration = new System.Timers.Timer();
-            timerAcceleration.Interval = formMenu.Difficulte.TempsAccelerationSerpent * 100;
-            timerAcceleration.Elapsed += new ElapsedEventHandler(changementVitesse);
-            timerAcceleration.Start();
+            TimerAcceleration = new System.Timers.Timer();
+            TimerAcceleration.Interval = formMenu.Difficulte.TempsAccelerationSerpent * 1000;
+            TimerAcceleration.Elapsed += new ElapsedEventHandler(changementVitesse);
+            TimerAcceleration.Start();
         }
 
         public void lanceTimerJeu()
         {
-            timerJeu = new System.Timers.Timer();
-            timerJeu.Interval = formMenu.Difficulte.VitesseSerpent * 120;
-            timerJeu.Elapsed += new ElapsedEventHandler(avancerSerpent);
-            timerJeu.Start();
+            TimerJeu = new System.Timers.Timer();
+            TimerJeu.Interval = formMenu.Difficulte.VitesseSerpent * 100;
+            TimerJeu.Elapsed += new ElapsedEventHandler(avancerSerpent);
+            TimerJeu.Start();
         }
 
         public void lanceTimerFruit()
         {
-            timerFruit = new System.Timers.Timer();
-            timerFruit.Interval = formMenu.Difficulte.TempsDisparitionFruit * 1000;
-            timerFruit.Elapsed += new ElapsedEventHandler(gestionFruit);
-            timerFruit.Start();
+            TimerFruit = new System.Timers.Timer();
+            TimerFruit.Interval = formMenu.Difficulte.TempsDisparitionFruit * 1000;
+            TimerFruit.Elapsed += new ElapsedEventHandler(gestionFruit);
+            TimerFruit.Start();
         }
 
+        internal TypeCollision Collision
+        {
+            get
+            {
+                return collision_;
+            }
 
-        public int Acceleration { get => acceleration; set => acceleration = value; }
-        internal Case[,] Grille { get => grille; set => grille = value; }
-        public int QteFruitManger { get => qteFruitManger; set => qteFruitManger = value; }
+            set
+            {
+                collision_ = value;
+            }
+        }
+
+        public int QteFruitManger
+        {
+            get
+            {
+                return qteFruitManger;
+            }
+
+            set
+            {
+                qteFruitManger = value;
+            }
+        }
+
+        internal Case[,] Grille
+        {
+            get
+            {
+                return grille;
+            }
+
+            set
+            {
+                grille = value;
+            }
+        }
+
+        public Timer TimerJeu
+        {
+            get
+            {
+                return timerJeu;
+            }
+
+            set
+            {
+                timerJeu = value;
+            }
+        }
+
+        public Timer TimerFruit
+        {
+            get
+            {
+                return timerFruit;
+            }
+
+            set
+            {
+                timerFruit = value;
+            }
+        }
+
+        public Timer TimerAcceleration
+        {
+            get
+            {
+                return timerAcceleration;
+            }
+
+            set
+            {
+                timerAcceleration = value;
+            }
+        }
+
     }
 }

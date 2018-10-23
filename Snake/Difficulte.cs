@@ -15,19 +15,63 @@ namespace Snake
 
  
 
-        public int VitesseSerpent { get => vitesseSerpent; set => vitesseSerpent = value; }
+public int TempsAccelerationSerpent
+        {
+            get
+            {
+                return tempsAccelerationSerpent;
+            }
 
-        public int TempsAccelerationSerpent { get => tempsAccelerationSerpent; set => tempsAccelerationSerpent = value; }
+            set
+            {
+                tempsAccelerationSerpent = value;
+            }
+        }
 
-        public bool Bordure { get => bordure; set => bordure = value; }
+        public int VitesseSerpent
+        {
+            get
+            {
+                return vitesseSerpent;
+            }
 
-        public int TempsDisparitionFruit { get => tempsDisparitionFruit; set => tempsDisparitionFruit = value; }
+            set
+            {
+                vitesseSerpent = value;
+            }
+        }
+
+        public bool Bordure
+        {
+            get
+            {
+                return bordure;
+            }
+
+            set
+            {
+                bordure = value;
+            }
+        }
+
+        public int TempsDisparitionFruit
+        {
+            get
+            {
+                return tempsDisparitionFruit;
+            }
+
+            set
+            {
+                tempsDisparitionFruit = value;
+            }
+        }
 
         public int calculScoreMultiplicateur()
         {
             int mutiplicateur = 0;
 
-            switch (vitesseSerpent)
+            switch (VitesseSerpent)
             {
                 case 5:
                     mutiplicateur += 80;
@@ -46,32 +90,32 @@ namespace Snake
                     break;
             }
 
-            if (bordure)
+            if (Bordure)
                 mutiplicateur += 50;
   
 
-            if (tempsAccelerationSerpent <= 2)
+            if (TempsAccelerationSerpent <= 2)
                     mutiplicateur += 80;
-            else if (tempsAccelerationSerpent <= 4)
+            else if (TempsAccelerationSerpent <= 4)
                 mutiplicateur += 60;
-            else if(tempsAccelerationSerpent <= 6)
+            else if(TempsAccelerationSerpent <= 6)
                 mutiplicateur += 50;
-            else if(tempsAccelerationSerpent <= 8)
+            else if(TempsAccelerationSerpent <= 8)
                 mutiplicateur += 40;
-            else if(tempsAccelerationSerpent <= 10)
+            else if(TempsAccelerationSerpent <= 10)
                 mutiplicateur += 30;
 
-            if(tempsDisparitionFruit == 0)
+            if(TempsDisparitionFruit == 0)
                 mutiplicateur += 0;
-            else if (tempsDisparitionFruit <= 4)
+            else if (TempsDisparitionFruit <= 4)
                 mutiplicateur += 80;
-            else if(tempsDisparitionFruit <= 5)
+            else if(TempsDisparitionFruit <= 5)
                 mutiplicateur += 60;
-            else if (tempsDisparitionFruit <= 6)
+            else if (TempsDisparitionFruit <= 6)
                 mutiplicateur += 30;
-            else if (tempsDisparitionFruit <= 7)
+            else if (TempsDisparitionFruit <= 7)
                 mutiplicateur += 20;
-            else if (tempsDisparitionFruit <= 8)
+            else if (TempsDisparitionFruit <= 8)
                 mutiplicateur += 10;
 
             

@@ -18,6 +18,44 @@ namespace Snake
         List<Joueur> listeJoueurs;
         Couleurs couleur;
 
+        internal Joueur Joueur
+        {
+            get
+            {
+                return joueur;
+            }
+
+            set
+            {
+                joueur = value;
+            }
+        }
+
+        internal Difficulte Difficulte
+        {
+            get
+            {
+                return difficulte;
+            }
+
+            set
+            {
+                difficulte = value;
+            }
+        }
+
+        internal List<Joueur> ListeJoueurs
+        {
+            get
+            {
+                return listeJoueurs;
+            }
+
+            set
+            {
+                listeJoueurs = value;
+            }
+        }
 
         public FormMenu()
         {
@@ -73,18 +111,12 @@ namespace Snake
 
         private void bt_Quit_Click(object sender, EventArgs e)
         {
-            joueur.supprimeJoueursXML();
-            foreach(Joueur element in listeJoueurs)
+            Joueur.supprimeJoueursXML();
+            foreach(Joueur element in ListeJoueurs)
             {
-                joueur.ajoutJoueurXML(element.Nom, element.MeilleurScore, element.MultiplicateurScore);
+                Joueur.ajoutJoueurXML(element.Nom, element.MeilleurScore, element.MultiplicateurScore);
             }
             this.Close();
         }
-
-
-        internal Difficulte Difficulte { get => Difficulte1; set => Difficulte1 = value; }
-        internal Difficulte Difficulte1 { get => difficulte; set => difficulte = value; }
-        internal Joueur Joueur { get => joueur; set => joueur = value; }
-        internal List<Joueur> ListeJoueurs { get => listeJoueurs; set => listeJoueurs = value; }
     }
 }
