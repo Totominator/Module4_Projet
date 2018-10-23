@@ -57,30 +57,38 @@ namespace Snake
             this.Hide();
         }
 
+        /// <summary>
+        /// Trie les joueurs par meilleur score
+        /// </summary>
+        /// <returns>Joueurs trié par meilleur score</returns>
         private List<Joueur> trierParMeilleurScore()
         {
             List<Joueur> joueursTrie = new List<Joueur>();
             joueursTrie = listeJoueurs;
             bool tableauTrie = false;
-            for (int indexJoueur = listeJoueurs.Count - 1; indexJoueur > 1; indexJoueur--)
+
+            // Tri à bulle optimisé
+            for (int indexJoueur = listeJoueurs.Count ; indexJoueur > 0; indexJoueur--)
             {
                 tableauTrie = true;
-                for(int index2 = 0; indexJoueur < indexJoueur -1; index2++)
-                    if(joueursTrie[index2+1].MeilleurScore < joueursTrie[index2].MeilleurScore)
+                for(int indexTri = 0; indexTri < indexJoueur -1; indexTri++)
+                    if(joueursTrie[indexTri+1].MeilleurScore > joueursTrie[indexTri].MeilleurScore)
                     {
                         Joueur joueurTntermediaire = new Joueur();
-                        joueurTntermediaire = joueursTrie[index2];
-                        joueursTrie[index2] = joueursTrie[index2 + 1];
-                        joueursTrie[index2 + 1] = joueurTntermediaire;
+                        joueurTntermediaire = joueursTrie[indexTri];
+                        joueursTrie[indexTri] = joueursTrie[indexTri + 1];
+                        joueursTrie[indexTri + 1] = joueurTntermediaire;
                         tableauTrie = false;
                     }
                 if(tableauTrie)
                     indexJoueur = 0;
             }
-
             return joueursTrie;
         }
 
+        /// <summary>
+        /// Affiche les score des joueurs
+        /// </summary>
         private void afficheHallOfFame()
         {
             List<Joueur> joueursTrie = new List<Joueur>();
@@ -97,11 +105,11 @@ namespace Snake
 
                 // Affiche que 10 joueurs 
                 if (index == 10)
-                    index = listeJoueurs.Count;
+                    index = joueursTrie.Count;
             }
         }
         
-
+        // Sauvegardes les joueurs dans XML
         private void bt_Quit_Click(object sender, EventArgs e)
         {
             Joueur.supprimeJoueursXML();
@@ -112,6 +120,9 @@ namespace Snake
             this.Close();
         }
 
+        /// <summary>
+        /// Propriété d'objet joueur
+        /// </summary>
         internal Joueur Joueur
         {
             get
@@ -125,6 +136,9 @@ namespace Snake
             }
         }
 
+        /// <summary>
+        /// Propriété d'objet difficulté
+        /// </summary>
         internal Difficulte Difficulte
         {
             get
@@ -138,6 +152,9 @@ namespace Snake
             }
         }
 
+        /// <summary>
+        /// Propriété de la liste des joueurs
+        /// </summary>
         internal List<Joueur> ListeJoueurs
         {
             get
