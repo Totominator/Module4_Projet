@@ -33,7 +33,6 @@ namespace Snake
 
             listeJoueur.Add(joueur);
         }
-
         return listeJoueur;
     }
 
@@ -100,7 +99,6 @@ namespace Snake
             {
                 return nom;
             }
-
             set
             {
                 nom = value;
@@ -113,7 +111,6 @@ namespace Snake
             {
                 return meilleurScore;
             }
-
             set
             {
                 meilleurScore = value;
@@ -126,7 +123,6 @@ namespace Snake
             {
                 return multiplicateurScore;
             }
-
             set
             {
                 multiplicateurScore = value;

@@ -23,7 +23,7 @@ namespace Snake
             couleur = new Couleurs();
             this.BackColor = couleur.CouleurFond;
 
-            trackBar_Vitesse.Value = difficulte.VitesseSerpent;
+            trackBar_Vitesse.Value = (int)difficulte.VitesseSerpent;
             num_Acceleration.Value = difficulte.TempsAccelerationSerpent;
             num_TempsFruit.Value = difficulte.TempsDisparitionFruit;
             if (difficulte.Bordure)
@@ -47,8 +47,26 @@ namespace Snake
 
         private void trackBar_Vitesse_Scroll(object sender, EventArgs e)
         {
-            difficulte.VitesseSerpent = trackBar_Vitesse.Value;
-            actualiseMultiplicateurAffichage();
+            // Fais correspondre la réponse de l'utilisateur à la vitesse du serpent
+            switch (trackBar_Vitesse.Value)
+            {
+                case 2:
+                    difficulte.VitesseSerpent = Difficulte.VitesseDeBase.tresRapide;
+                    break;
+                case 3:
+                    difficulte.VitesseSerpent = Difficulte.VitesseDeBase.rapide;
+                    break;
+                case 4:
+                    difficulte.VitesseSerpent = Difficulte.VitesseDeBase.normal;
+                    break;
+                case 5:
+                    difficulte.VitesseSerpent = Difficulte.VitesseDeBase.lent;
+                    break;
+                case 6:
+                    difficulte.VitesseSerpent = Difficulte.VitesseDeBase.tresLent;
+                    break;
+            }
+                actualiseMultiplicateurAffichage();
         }
 
         private void rad_Oui_CheckedChanged(object sender, EventArgs e)

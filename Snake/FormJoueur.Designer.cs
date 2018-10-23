@@ -141,6 +141,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(349, 220);
+            this.ControlBox = false;
             this.Controls.Add(this.bt_Retour);
             this.Controls.Add(this.bt_Supprime);
             this.Controls.Add(this.bt_Creer);
@@ -152,7 +153,7 @@
             this.Controls.Add(this.lb_CreatePlayer);
             this.Controls.Add(this.lb_SelectPlayer);
             this.Name = "FormJoueur";
-            this.Text = "FormJoueur";
+            this.Text = "Player manager";
             this.ResumeLayout(false);
             this.PerformLayout();
 

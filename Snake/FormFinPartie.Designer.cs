@@ -145,6 +145,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(316, 219);
+            this.ControlBox = false;
             this.Controls.Add(this.bt_Menu);
             this.Controls.Add(this.bt_Rejouer);
             this.Controls.Add(this.label1);
@@ -156,7 +157,7 @@
             this.Controls.Add(this.lb_Multiplicateur);
             this.Controls.Add(this.lb_Joueur);
             this.Name = "FormFinPartie";
-            this.Text = "Fin de partie";
+            this.Text = "End of the game";
             this.ResumeLayout(false);
             this.PerformLayout();
 

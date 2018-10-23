@@ -16,19 +16,6 @@ namespace Snake
         FormMenu formMenu;
         Jeu jeu;
 
-        internal Jeu Jeu
-        {
-            get
-            {
-                return jeu;
-            }
-
-            set
-            {
-                jeu = value;
-            }
-        }
-
         public FormJeu(FormMenu formMenu)
         {
             InitializeComponent();
@@ -61,7 +48,7 @@ namespace Snake
 
             lb_Joueur.Text = formMenu.Joueur.Nom;
             lb_Multiplicateur.Text = Convert.ToString(formMenu.Difficulte.calculScoreMultiplicateur());
-            lb_Score.Text = Convert.ToString(formMenu.Joueur.MeilleurScore);
+            lb_MeilleurScore.Text = Convert.ToString(formMenu.Joueur.MeilleurScore);
         }
 
 
@@ -196,6 +183,17 @@ namespace Snake
             this.Close();
         }
 
+        internal Jeu Jeu
+        {
+            get
+            {
+                return jeu;
+            }
 
+            set
+            {
+                jeu = value;
+            }
+        }
     }
 }

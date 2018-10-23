@@ -9,13 +9,20 @@ namespace Snake
     class Difficulte
     {
         private int tempsAccelerationSerpent = 5;   // Détermine tous les combien de temps le serpent vas accéléré.
-        private int vitesseSerpent = 3;             // Détermine la vitesse du serpent au début de la partie.
+        private VitesseDeBase vitesseSerpent = VitesseDeBase.normal;             // Détermine la vitesse du serpent au début de la partie.
         private bool bordure = true;                   // Détermine si les bordures sont présente dans les bords du jeu.
         private int tempsDisparitionFruit = 0;           // Indique le nombre de seconde avant la disparition d'un fruit non consommé sur la grille.
 
- 
+        public enum VitesseDeBase
+        {
+            tresLent = 6,
+            lent = 5,
+            normal =4,
+            rapide = 3,
+            tresRapide =2
+        }
 
-public int TempsAccelerationSerpent
+        public int TempsAccelerationSerpent
         {
             get
             {
@@ -25,19 +32,6 @@ public int TempsAccelerationSerpent
             set
             {
                 tempsAccelerationSerpent = value;
-            }
-        }
-
-        public int VitesseSerpent
-        {
-            get
-            {
-                return vitesseSerpent;
-            }
-
-            set
-            {
-                vitesseSerpent = value;
             }
         }
 
@@ -67,25 +61,51 @@ public int TempsAccelerationSerpent
             }
         }
 
+        internal VitesseDeBase VitesseSerpent
+        {
+            get
+            {
+                return VitesseSerpent1;
+            }
+
+            set
+            {
+                VitesseSerpent1 = value;
+            }
+        }
+
+        internal VitesseDeBase VitesseSerpent1
+        {
+            get
+            {
+                return vitesseSerpent;
+            }
+
+            set
+            {
+                vitesseSerpent = value;
+            }
+        }
+
         public int calculScoreMultiplicateur()
         {
             int mutiplicateur = 0;
 
             switch (VitesseSerpent)
             {
-                case 5:
+                case VitesseDeBase.tresRapide:
                     mutiplicateur += 80;
                     break;
-                case 4:
+                case VitesseDeBase.rapide:
                     mutiplicateur += 60;
                     break;
-                case 3:
+                case VitesseDeBase.normal:
                     mutiplicateur += 40;
                     break;
-                case 2:
+                case VitesseDeBase.lent:
                     mutiplicateur += 25;
                     break;
-                case 1:
+                case VitesseDeBase.tresLent:
                     mutiplicateur += 15;
                     break;
             }

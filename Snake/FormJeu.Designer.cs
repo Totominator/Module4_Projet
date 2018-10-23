@@ -60,9 +60,9 @@
             this.lb_Titre.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Titre.Location = new System.Drawing.Point(12, 18);
             this.lb_Titre.Name = "lb_Titre";
-            this.lb_Titre.Size = new System.Drawing.Size(247, 31);
+            this.lb_Titre.Size = new System.Drawing.Size(184, 31);
             this.lb_Titre.TabIndex = 1;
-            this.lb_Titre.Text = "Snake\'s game V0.1";
+            this.lb_Titre.Text = "Snake\'s game";
             // 
             // lb_texte_Joueur
             // 
@@ -88,7 +88,7 @@
             // 
             this.bt_Debut.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_Debut.Location = new System.Drawing.Point(622, 593);
-            this.bt_Debut.Name = "bt_Start";
+            this.bt_Debut.Name = "bt_Debut";
             this.bt_Debut.Size = new System.Drawing.Size(136, 59);
             this.bt_Debut.TabIndex = 4;
             this.bt_Debut.Text = "START ";
@@ -146,9 +146,8 @@
             this.lb_MeilleurScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_MeilleurScore.Location = new System.Drawing.Point(153, 221);
             this.lb_MeilleurScore.Name = "lb_MeilleurScore";
-            this.lb_MeilleurScore.Size = new System.Drawing.Size(118, 20);
+            this.lb_MeilleurScore.Size = new System.Drawing.Size(0, 20);
             this.lb_MeilleurScore.TabIndex = 12;
-            this.lb_MeilleurScore.Text = "MeilleurScore";
             // 
             // lb_Texte_MeilleurScore
             // 
@@ -166,9 +165,8 @@
             this.lb_Score.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Score.Location = new System.Drawing.Point(145, 68);
             this.lb_Score.Name = "lb_Score";
-            this.lb_Score.Size = new System.Drawing.Size(56, 20);
+            this.lb_Score.Size = new System.Drawing.Size(0, 20);
             this.lb_Score.TabIndex = 10;
-            this.lb_Score.Text = "Score";
             // 
             // lb_Multiplicateur
             // 
@@ -176,9 +174,8 @@
             this.lb_Multiplicateur.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Multiplicateur.Location = new System.Drawing.Point(151, 9);
             this.lb_Multiplicateur.Name = "lb_Multiplicateur";
-            this.lb_Multiplicateur.Size = new System.Drawing.Size(116, 20);
+            this.lb_Multiplicateur.Size = new System.Drawing.Size(0, 20);
             this.lb_Multiplicateur.TabIndex = 9;
-            this.lb_Multiplicateur.Text = "Multiplicateur";
             // 
             // lb_qteManger
             // 
@@ -186,9 +183,8 @@
             this.lb_qteManger.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_qteManger.Location = new System.Drawing.Point(153, 39);
             this.lb_qteManger.Name = "lb_qteManger";
-            this.lb_qteManger.Size = new System.Drawing.Size(95, 20);
+            this.lb_qteManger.Size = new System.Drawing.Size(0, 20);
             this.lb_qteManger.TabIndex = 6;
-            this.lb_qteManger.Text = "qteManger";
             // 
             // lb_Joueur
             // 
@@ -225,6 +221,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(921, 665);
+            this.ControlBox = false;
             this.Controls.Add(this.bt_Retour);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lb_Joueur);
@@ -235,7 +232,7 @@
             this.Controls.Add(this.lb_Titre);
             this.Controls.Add(this.panneauJeu);
             this.Name = "FormJeu";
-            this.Text = "FormJeu";
+            this.Text = "Play time !";
             this.panneauStats.ResumeLayout(false);
             this.panneauStats.PerformLayout();
             this.ResumeLayout(false);

@@ -44,6 +44,8 @@
             this.num_Acceleration = new System.Windows.Forms.NumericUpDown();
             this.lb_Texte_Multiplicateur = new System.Windows.Forms.Label();
             this.lb_Multiplicateur = new System.Windows.Forms.Label();
+            this.lb_Min = new System.Windows.Forms.Label();
+            this.lb_Max = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_Vitesse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_TempsFruit)).BeginInit();
@@ -140,12 +142,13 @@
             this.trackBar_Vitesse.AutoSize = false;
             this.trackBar_Vitesse.LargeChange = 1;
             this.trackBar_Vitesse.Location = new System.Drawing.Point(204, 71);
-            this.trackBar_Vitesse.Maximum = 5;
-            this.trackBar_Vitesse.Minimum = 1;
+            this.trackBar_Vitesse.Maximum = 6;
+            this.trackBar_Vitesse.Minimum = 2;
             this.trackBar_Vitesse.Name = "trackBar_Vitesse";
             this.trackBar_Vitesse.Size = new System.Drawing.Size(126, 32);
             this.trackBar_Vitesse.TabIndex = 8;
-            this.trackBar_Vitesse.Value = 3;
+            this.trackBar_Vitesse.Tag = "";
+            this.trackBar_Vitesse.Value = 4;
             this.trackBar_Vitesse.Scroll += new System.EventHandler(this.trackBar_Vitesse_Scroll);
             // 
             // num_TempsFruit
@@ -215,11 +218,34 @@
             this.lb_Multiplicateur.Size = new System.Drawing.Size(0, 24);
             this.lb_Multiplicateur.TabIndex = 14;
             // 
+            // lb_Min
+            // 
+            this.lb_Min.AutoSize = true;
+            this.lb_Min.ForeColor = System.Drawing.Color.White;
+            this.lb_Min.Location = new System.Drawing.Point(207, 95);
+            this.lb_Min.Name = "lb_Min";
+            this.lb_Min.Size = new System.Drawing.Size(24, 13);
+            this.lb_Min.TabIndex = 15;
+            this.lb_Min.Text = "Min";
+            // 
+            // lb_Max
+            // 
+            this.lb_Max.AutoSize = true;
+            this.lb_Max.ForeColor = System.Drawing.Color.White;
+            this.lb_Max.Location = new System.Drawing.Point(302, 94);
+            this.lb_Max.Name = "lb_Max";
+            this.lb_Max.Size = new System.Drawing.Size(27, 13);
+            this.lb_Max.TabIndex = 16;
+            this.lb_Max.Text = "Max";
+            // 
             // FormDifficulte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(390, 300);
+            this.ControlBox = false;
+            this.Controls.Add(this.lb_Max);
+            this.Controls.Add(this.lb_Min);
             this.Controls.Add(this.lb_Multiplicateur);
             this.Controls.Add(this.lb_Texte_Multiplicateur);
             this.Controls.Add(this.num_Acceleration);
@@ -234,7 +260,7 @@
             this.Controls.Add(this.lb_Vitesse);
             this.Controls.Add(this.lb_Titre);
             this.Name = "FormDifficulte";
-            this.Text = "FormDifficulte";
+            this.Text = "Difficulty";
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_Vitesse)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_TempsFruit)).EndInit();
@@ -261,5 +287,7 @@
         private System.Windows.Forms.NumericUpDown num_Acceleration;
         private System.Windows.Forms.Label lb_Texte_Multiplicateur;
         private System.Windows.Forms.Label lb_Multiplicateur;
+        private System.Windows.Forms.Label lb_Min;
+        private System.Windows.Forms.Label lb_Max;
     }
 }

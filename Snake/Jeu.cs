@@ -264,9 +264,9 @@ namespace Snake
 
         private void changementVitesse(object sender, EventArgs e)
         {
-            if ((formMenu.Difficulte.VitesseSerpent * 100 - accelerationDepuisDebut) > 100)
+            if (((int)formMenu.Difficulte.VitesseSerpent * 100 - accelerationDepuisDebut) > 100)
             {
-                TimerJeu.Interval = formMenu.Difficulte.VitesseSerpent * 100 - accelerationIncrement;
+                TimerJeu.Interval = (int)formMenu.Difficulte.VitesseSerpent * 100 - accelerationIncrement;
                 accelerationDepuisDebut += accelerationIncrement;
             }
             else
@@ -286,7 +286,7 @@ namespace Snake
         public void lanceTimerJeu()
         {
             TimerJeu = new System.Timers.Timer();
-            TimerJeu.Interval = formMenu.Difficulte.VitesseSerpent * 100;
+            TimerJeu.Interval = (int)formMenu.Difficulte.VitesseSerpent * 100;
             TimerJeu.Elapsed += new ElapsedEventHandler(avancerSerpent);
             TimerJeu.Start();
         }

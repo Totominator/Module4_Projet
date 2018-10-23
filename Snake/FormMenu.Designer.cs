@@ -114,6 +114,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(360, 395);
+            this.ControlBox = false;
             this.Controls.Add(this.panneau_HallOfFame);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lb_HallofFame);
@@ -122,7 +123,7 @@
             this.Controls.Add(this.bt_Players);
             this.Controls.Add(this.bt_Play);
             this.Name = "FormMenu";
-            this.Text = "Snake\'s game";
+            this.Text = "Main menu";
             this.ResumeLayout(false);
             this.PerformLayout();
 

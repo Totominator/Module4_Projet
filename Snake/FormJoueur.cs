@@ -54,9 +54,17 @@ namespace Snake
 
         private void bt_Supprime_Click(object sender, EventArgs e)
         {
+            // Modifie le joueur actuel si il est supprimé.
+            if (formMenu.Joueur.Nom == formMenu.ListeJoueurs[cbBox_Supprime.SelectedIndex].Nom)
+                formMenu.Joueur.Nom = "Player";
+
+            // Supprime le joueur de la liste
             joueur.supprimerJoueur(formMenu.ListeJoueurs, cbBox_Supprime.SelectedIndex);
+
+            // Actualise l'affichage de la box Supprimer
             cbBox_Supprime.ResetText();
             
+            // Actualise l'affichage de la box Sélectionné
             if (cbBox_Supprime.SelectedIndex == cbBox_Selectionne.SelectedIndex)
                 cbBox_Selectionne.ResetText();
 
