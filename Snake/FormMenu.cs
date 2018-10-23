@@ -57,16 +57,47 @@ namespace Snake
             this.Hide();
         }
 
+        private List<Joueur> trierParMeilleurScore()
+        {
+            List<Joueur> joueursTrie = new List<Joueur>();
+            joueursTrie = listeJoueurs;
+            bool tableauTrie = false;
+            for (int indexJoueur = listeJoueurs.Count - 1; indexJoueur > 1; indexJoueur--)
+            {
+                tableauTrie = true;
+                for(int index2 = 0; indexJoueur < indexJoueur -1; index2++)
+                    if(joueursTrie[index2+1].MeilleurScore < joueursTrie[index2].MeilleurScore)
+                    {
+                        Joueur joueurTntermediaire = new Joueur();
+                        joueurTntermediaire = joueursTrie[index2];
+                        joueursTrie[index2] = joueursTrie[index2 + 1];
+                        joueursTrie[index2 + 1] = joueurTntermediaire;
+                        tableauTrie = false;
+                    }
+                if(tableauTrie)
+                    indexJoueur = 0;
+            }
+
+            return joueursTrie;
+        }
+
         private void afficheHallOfFame()
         {
-            for (int index = 0; index < 3; index++)
+            List<Joueur> joueursTrie = new List<Joueur>();
+            joueursTrie = trierParMeilleurScore();
+
+            for (int index = 0; index < joueursTrie.Count ; index++)
             {
                 Label lbCase = new Label();
                 lbCase.Location = new System.Drawing.Point(0, 30 * index);
                 lbCase.Name = "label" + panneau_HallOfFame.Controls.Count;
-                lbCase.Text = ListeJoueurs[index].Nom + " " +ListeJoueurs[index].MeilleurScore+ " " +ListeJoueurs[index].MultiplicateurScore;
+                lbCase.Text = joueursTrie[index].Nom + " " + joueursTrie[index].MeilleurScore+ " " + joueursTrie[index].MultiplicateurScore;
 
                 panneau_HallOfFame.Controls.Add(lbCase);
+
+                // Affiche que 10 joueurs 
+                if (index == 10)
+                    index = listeJoueurs.Count;
             }
         }
         
