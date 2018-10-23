@@ -18,45 +18,6 @@ namespace Snake
         List<Joueur> listeJoueurs;
         Couleurs couleur;
 
-        internal Joueur Joueur
-        {
-            get
-            {
-                return joueur;
-            }
-
-            set
-            {
-                joueur = value;
-            }
-        }
-
-        internal Difficulte Difficulte
-        {
-            get
-            {
-                return difficulte;
-            }
-
-            set
-            {
-                difficulte = value;
-            }
-        }
-
-        internal List<Joueur> ListeJoueurs
-        {
-            get
-            {
-                return listeJoueurs;
-            }
-
-            set
-            {
-                listeJoueurs = value;
-            }
-        }
-
         public FormMenu()
         {
             InitializeComponent();
@@ -65,6 +26,7 @@ namespace Snake
             ListeJoueurs = Joueur.recuperationJoueurs();
             couleur = new Couleurs();
             afficheHallOfFame();
+            this.lb_Joueur.Text = Joueur.Nom;
 
             this.BackColor = couleur.CouleurFond;
         }
@@ -117,6 +79,45 @@ namespace Snake
                 Joueur.ajoutJoueurXML(element.Nom, element.MeilleurScore, element.MultiplicateurScore);
             }
             this.Close();
+        }
+
+        internal Joueur Joueur
+        {
+            get
+            {
+                return joueur;
+            }
+
+            set
+            {
+                joueur = value;
+            }
+        }
+
+        internal Difficulte Difficulte
+        {
+            get
+            {
+                return difficulte;
+            }
+
+            set
+            {
+                difficulte = value;
+            }
+        }
+
+        internal List<Joueur> ListeJoueurs
+        {
+            get
+            {
+                return listeJoueurs;
+            }
+
+            set
+            {
+                listeJoueurs = value;
+            }
         }
     }
 }

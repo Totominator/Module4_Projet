@@ -50,19 +50,19 @@ namespace Snake
             // Fais correspondre la réponse de l'utilisateur à la vitesse du serpent
             switch (trackBar_Vitesse.Value)
             {
-                case 2:
+                case 6:
                     difficulte.VitesseSerpent = Difficulte.VitesseDeBase.tresRapide;
                     break;
-                case 3:
+                case 5:
                     difficulte.VitesseSerpent = Difficulte.VitesseDeBase.rapide;
                     break;
                 case 4:
                     difficulte.VitesseSerpent = Difficulte.VitesseDeBase.normal;
                     break;
-                case 5:
+                case 3:
                     difficulte.VitesseSerpent = Difficulte.VitesseDeBase.lent;
                     break;
-                case 6:
+                case 2:
                     difficulte.VitesseSerpent = Difficulte.VitesseDeBase.tresLent;
                     break;
             }

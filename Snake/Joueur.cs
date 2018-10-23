@@ -8,12 +8,15 @@ using System.Xml.XPath;
 
 namespace Snake
 {
+   
     class Joueur
     {
-        private string nom = "Player";
+        public const string NOMPARDEFAUT = "Player";
+        private string nom = NOMPARDEFAUT;
         private int meilleurScore = 0;
         private int multiplicateurScore = 0;
         private XmlDocument xmlDoc;
+       
       
     public List<Joueur> recuperationJoueurs()
     {
@@ -76,8 +79,6 @@ namespace Snake
             Console.WriteLine("save");
         }
 
-
-
         public void ajouterJoueur(List<Joueur> joueurs, string nom)
         {
             Joueur joueur = new Joueur();
@@ -130,3 +131,4 @@ namespace Snake
         }
     }
 }
+

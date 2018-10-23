@@ -34,7 +34,7 @@ namespace Snake
 
         private void gestionScore()
         {
-            if (formMenu.Joueur.Nom != "Player")
+            if (formMenu.Joueur.Nom != Joueur.NOMPARDEFAUT)
                 if (formJeu.Jeu.QteFruitManger * formMenu.Difficulte.calculScoreMultiplicateur() / 100 > formMenu.Joueur.MeilleurScore)
                 {
                     formMenu.Joueur.MeilleurScore = formJeu.Jeu.QteFruitManger * formMenu.Difficulte.calculScoreMultiplicateur() / 100;

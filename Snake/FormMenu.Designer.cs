@@ -36,6 +36,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panneau_HallOfFame = new System.Windows.Forms.Panel();
+            this.lb_Joueur = new System.Windows.Forms.Label();
+            this.lb_texte_Joueur = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // bt_Play
@@ -109,12 +111,34 @@
             this.panneau_HallOfFame.Size = new System.Drawing.Size(168, 154);
             this.panneau_HallOfFame.TabIndex = 6;
             // 
+            // lb_Joueur
+            // 
+            this.lb_Joueur.AutoSize = true;
+            this.lb_Joueur.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Joueur.Location = new System.Drawing.Point(364, 83);
+            this.lb_Joueur.Name = "lb_Joueur";
+            this.lb_Joueur.Size = new System.Drawing.Size(59, 20);
+            this.lb_Joueur.TabIndex = 9;
+            this.lb_Joueur.Text = "joueur";
+            // 
+            // lb_texte_Joueur
+            // 
+            this.lb_texte_Joueur.AutoSize = true;
+            this.lb_texte_Joueur.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_texte_Joueur.Location = new System.Drawing.Point(339, 83);
+            this.lb_texte_Joueur.Name = "lb_texte_Joueur";
+            this.lb_texte_Joueur.Size = new System.Drawing.Size(41, 20);
+            this.lb_texte_Joueur.TabIndex = 8;
+            this.lb_texte_Joueur.Text = "Hi,  ";
+            // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(360, 395);
+            this.ClientSize = new System.Drawing.Size(467, 395);
             this.ControlBox = false;
+            this.Controls.Add(this.lb_Joueur);
+            this.Controls.Add(this.lb_texte_Joueur);
             this.Controls.Add(this.panneau_HallOfFame);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lb_HallofFame);
@@ -139,6 +163,8 @@
         private System.Windows.Forms.Label label1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Panel panneau_HallOfFame;
+        private System.Windows.Forms.Label lb_Joueur;
+        private System.Windows.Forms.Label lb_texte_Joueur;
     }
 }
 

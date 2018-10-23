@@ -36,6 +36,7 @@ namespace Snake
         private int qteFruitManger = 0;                             // Indique la quantité de fruit mangé par le serpent
         private int accelerationIncrement = 10; // accélération du serpent a chaque tic en ms
         private int accelerationDepuisDebut = 0;
+        private int vitesseMaximum = 80; // en ms
         const int COLONNE = 15;
         const int LIGNE = 15;
 
@@ -264,7 +265,7 @@ namespace Snake
 
         private void changementVitesse(object sender, EventArgs e)
         {
-            if (((int)formMenu.Difficulte.VitesseSerpent * 100 - accelerationDepuisDebut) > 100)
+            if (((int)formMenu.Difficulte.VitesseSerpent * 100 - accelerationDepuisDebut) > vitesseMaximum)
             {
                 TimerJeu.Interval = (int)formMenu.Difficulte.VitesseSerpent * 100 - accelerationIncrement;
                 accelerationDepuisDebut += accelerationIncrement;

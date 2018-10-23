@@ -25,6 +25,8 @@ namespace Snake
             actualiseAffichageComboBox();
 
             this.BackColor = couleur.CouleurFond;
+            if (formMenu.Joueur.Nom == Joueur.NOMPARDEFAUT)
+                cbBox_Selectionne.Text = Joueur.NOMPARDEFAUT;
         }
 
         private void actualiseAffichageComboBox()
@@ -49,7 +51,10 @@ namespace Snake
         private void bt_Creer_Click(object sender, EventArgs e)
         {
             joueur.ajouterJoueur(formMenu.ListeJoueurs, txBox_Cree.Text);
+            formMenu.Joueur = formMenu.ListeJoueurs[formMenu.ListeJoueurs.Count - 1];
+            txBox_Cree.Text = "";
             actualiseAffichageComboBox();
+            cbBox_Selectionne.SelectedIndex = formMenu.ListeJoueurs.Count - 1;
         }
 
         private void bt_Supprime_Click(object sender, EventArgs e)
@@ -68,12 +73,14 @@ namespace Snake
             if (cbBox_Supprime.SelectedIndex == cbBox_Selectionne.SelectedIndex)
                 cbBox_Selectionne.ResetText();
 
+            cbBox_Selectionne.Text = "Player";
+
             actualiseAffichageComboBox();
         }
 
         private void cbBox_Selectionne_SelectedIndexChanged(object sender, EventArgs e)
         {
-            formMenu.Joueur = formMenu.ListeJoueurs[cbBox_Selectionne.SelectedIndex];
+        formMenu.Joueur = formMenu.ListeJoueurs[cbBox_Selectionne.SelectedIndex];
         }
     }
 }

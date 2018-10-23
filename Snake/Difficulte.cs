@@ -65,25 +65,12 @@ namespace Snake
         {
             get
             {
-                return VitesseSerpent1;
-            }
-
-            set
-            {
-                VitesseSerpent1 = value;
-            }
-        }
-
-        internal VitesseDeBase VitesseSerpent1
-        {
-            get
-            {
                 return vitesseSerpent;
             }
 
             set
             {
-                vitesseSerpent = value;
+               vitesseSerpent = value;
             }
         }
 
