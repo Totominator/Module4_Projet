@@ -50,10 +50,16 @@ namespace Snake
 
         private void bt_Creer_Click(object sender, EventArgs e)
         {
+
             joueur.ajouterJoueur(formMenu.ListeJoueurs, txBox_Cree.Text);
             formMenu.Joueur = formMenu.ListeJoueurs[formMenu.ListeJoueurs.Count - 1];
+
+
+            // Affichage
             txBox_Cree.Text = "";
             actualiseAffichageComboBox();
+
+            // Le joueur crée devient sélectionné dans l'affichage.
             cbBox_Selectionne.SelectedIndex = formMenu.ListeJoueurs.Count - 1;
         }
 

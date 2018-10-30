@@ -92,8 +92,6 @@ namespace Snake
             joueurs.RemoveAt(index);
         }
 
-
-
     public string Nom
         {
             get
