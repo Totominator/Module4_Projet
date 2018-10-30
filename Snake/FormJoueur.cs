@@ -52,7 +52,7 @@ namespace Snake
         {
 
             joueur.ajouterJoueur(formMenu.ListeJoueurs, txBox_Cree.Text);
-            formMenu.Joueur = formMenu.ListeJoueurs[formMenu.ListeJoueurs.Count - 1];
+           
 
 
             // Affichage
